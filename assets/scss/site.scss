@@ -243,6 +243,14 @@ body > footer.ag-footer {
 .ag-content a { color: $ag-green; }
 .ag-content a:hover { color: $ag-green-dark; }
 
+// Images embedded in markdown content (via render-image hook)
+.ag-content-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+}
+
 // Section list (documentation sub-items)
 .ag-section-list {
     list-style: none;

@@ -1,0 +1,9 @@
+{{- /* Content image render hook: resolve from assets/ via resources.Get so
+       images are fingerprinted and base-URL-correct (subpath-safe). Falls back
+       to a plain relURL reference for images not found under assets/. */ -}}
+{{- $img := resources.Get .Destination -}}
+{{- if $img }}{{ $img = $img.Resize "600x webp q85" }}
+<img src="{{ $img.RelPermalink }}" alt="{{ .Text | plainify }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" class="ag-content-img">
+{{- else -}}
+<img src="{{ .Destination | relURL }}" alt="{{ .Text | plainify }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" class="ag-content-img">
+{{- end -}}
