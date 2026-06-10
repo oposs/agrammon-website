@@ -235,6 +235,19 @@ body > footer.ag-footer {
 // Content area
 .ag-content {
     padding: 20px 0 60px;
+
+    // Constrain the typographic measure for readability (~70–80 chars),
+    // left-aligned under the page header. The full-width header bar and the
+    // page container are unaffected.
+    $ag-measure: 44rem;
+    > .ag-intro,
+    > p, > ul, > ol, > h1, > h2, > h3, > h4, > h5, > blockquote, > .ag-todo, > figure,
+    .ag-intro > p, .ag-intro > ul, .ag-intro > ol,
+    .ag-intro > h1, .ag-intro > h2, .ag-intro > h3, .ag-intro > h4,
+    .ag-intro > blockquote, .ag-intro > figure {
+        max-width: $ag-measure;
+    }
+    .ag-content-img { max-width: min(100%, #{$ag-measure}); }
 }
 
 .ag-content h1 { color: $ag-green; }
