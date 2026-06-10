@@ -45,10 +45,6 @@
     </div>
     </div>
 
-    {{ with .Params.note }}
-    <p>{{ . | markdownify }}</p>
-    {{ end }}
-
     {{/* Modellbedienung / usage section + manuals, from the page body */}}
     {{ .Content }}
 </div>
