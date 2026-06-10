@@ -35,6 +35,7 @@
             <div class="ag-model-card">
                 <h3>{{ i18n "modell_kantonal" }}</h3>
                 <p>{{ i18n "modell_kantonal_desc" }}</p>
+                <p class="ag-model-note">⚠ {{ i18n "modell_kantonal_note" }}</p>
                 <a href="https://model.agrammon.ch/kantonal/?lang={{ .Site.Language.Lang }}"
                    class="ag-model-link" target="_blank" rel="noopener">
                     {{ i18n "model_link_label" }} →
@@ -47,6 +48,9 @@
     {{ with .Params.note }}
     <p>{{ . | markdownify }}</p>
     {{ end }}
+
+    {{/* Modellbedienung / usage section + manuals, from the page body */}}
+    {{ .Content }}
 </div>
 
 {{ end }}

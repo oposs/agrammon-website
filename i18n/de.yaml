@@ -53,10 +53,13 @@
   translation: Zum Modell
 
 - id: modell_einzel_desc
-  translation: Berechnung der Ammoniakemissionen für einen einzelnen landwirtschaftlichen Betrieb.
+  translation: "Das Agrammon Einzelbetriebsmodell basiert auf Modellparametern und Prozessen, die wissenschaftlich gut dokumentiert sind. Es erlaubt die Eingabe der relevanten Betriebsparameter mit möglichst direktem Bezug zum landwirtschaftlichen Betrieb. Dabei werden ausschliesslich Parameter verwendet, die dem Landwirt ohne besonderen Aufwand bekannt sind."
 
 - id: modell_regional_desc
-  translation: Aggregierte Berechnung der Emissionen für eine Region oder einen Kanton.
+  translation: "Das Agrammon Regionalmodell eignet sich für die Berechnung regionaler landwirtschaftlicher Ammoniakemissionen. Es basiert auf dem Einzelbetriebsmodell, erlaubt jedoch die Eingabe von regionalen Tierzahlen und der prozentualen Anteile der in der Region angewendeten Produktionstechnik. Die Berechnungen werden mit demselben Algorithmus durchgeführt wie im Einzelbetriebsmodell."
 
 - id: modell_kantonal_desc
-  translation: Kantonsspezifische Anpassungen der Modellparameter für präzisere Berechnungen.
+  translation: "Das Einzelbetriebsmodell mit kantonalen Anpassungen ist für kantonale Anwendungen bestimmt und kann insbesondere für die Beurteilung von Baugesuchen verwendet werden. Es basiert auf der Standardversion und enthält zusätzliche Massnahmen zur Emissionsminderung sowie eine Funktion zum Versand von Datensätzen an die zuständige kantonale Fachstelle."
+
+- id: modell_kantonal_note
+  translation: "Diese Variante ist eingefroren und wird 2028 ausser Betrieb genommen."

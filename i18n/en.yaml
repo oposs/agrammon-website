@@ -53,10 +53,13 @@
   translation: Open model
 
 - id: modell_einzel_desc
-  translation: Calculate ammonia emissions for an individual farm.
+  translation: "The Agrammon Single Farm Model is based on model parameters and processes which are well supported by scientific knowledge. It allows the input of the relevant parameters with a direct link to the individual farm. Only parameters are required which are easily available to the farmer."
 
 - id: modell_regional_desc
-  translation: Aggregated emission calculations for a region or canton.
+  translation: "The Agrammon Regional Model is suitable for the simulation of regional agricultural ammonia emissions. It is based on the Single Farm Model, but allows the input of regional animal numbers and the percentages of production techniques used in the region. The simulations use the same algorithm as the Single Farm Model."
 
 - id: modell_kantonal_desc
-  translation: Canton-specific model parameter adjustments for more precise calculations.
+  translation: "The Single Farm Model with Cantonal Adaptions is intended for cantonal purposes, for example the evaluation of building applications. It is based on the standard version and contains additional emission-reduction measures as well as a function to submit datasets to the relevant cantonal office."
+
+- id: modell_kantonal_note
+  translation: "This variant is frozen and will be taken offline in 2028."

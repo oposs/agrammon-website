@@ -361,6 +361,18 @@ html.dark .ag-todo {
 
         p { flex: 1; }
 
+        .ag-model-note {
+            flex: 0 0 auto;
+            margin: 0 0 4px;
+            padding: 8px 10px;
+            background: #fff3cd;
+            border-left: 3px solid #e0a800;
+            color: #7a5c00;
+            font-size: 0.82rem;
+            font-weight: 600;
+            border-radius: 3px;
+        }
+
         .ag-model-link {
             display: inline-block;
             margin-top: 12px;
