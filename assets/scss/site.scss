@@ -352,19 +352,20 @@ html.dark .ag-todo {
         background: #fff;
         border: 1px solid color.adjust($ag-light, $lightness: -8%);
         border-top: 4px solid $ag-green;
-        padding: 24px;
+        padding: 16px 20px 18px;
         height: 100%;
         display: flex;
         flex-direction: column;
 
-        h3 { color: $ag-green; margin-top: 0; }
+        h3 { color: $ag-green; margin-top: 0; margin-bottom: 0.5rem; }
 
-        p { margin-bottom: 0.5rem; }
+        // Description grows so the launch button bottom-aligns across cards
+        p { flex: 1; margin-bottom: 0.75rem; font-size: 0.92rem; line-height: 1.45; }
 
         .ag-model-note {
             flex: 0 0 auto;
-            margin: 0 0 4px;
-            padding: 8px 10px;
+            margin: 0 0 10px;
+            padding: 7px 10px;
             background: #fff3cd;
             border-left: 3px solid #e0a800;
             color: #7a5c00;
