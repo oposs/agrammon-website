@@ -243,6 +243,36 @@ body > footer.ag-footer {
 .ag-content a { color: $ag-green; }
 .ag-content a:hover { color: $ag-green-dark; }
 
+// Editorial TODO marker (via {{< todo >}} shortcode) — visible in preview
+.ag-todo {
+    display: block;
+    margin: 1.25rem 0;
+    padding: 0.65rem 0.9rem;
+    background: #fff8e1;
+    border-left: 4px solid #f5a623;
+    color: #5c4400;
+    font-size: 0.9rem;
+    border-radius: 3px;
+
+    .ag-todo-label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        font-size: 0.8rem;
+    }
+
+    a { color: #b35c00; text-decoration: underline; }
+    p { margin: 0; }
+}
+
+html.dark .ag-todo {
+    background: #3a3320;
+    color: #f0d890;
+    a { color: #f0b860; }
+}
+
 // Images embedded in markdown content (via render-image hook)
 .ag-content-img {
     display: block;

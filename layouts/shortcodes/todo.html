@@ -1,0 +1,7 @@
+{{- /* Visible editorial marker for items needing customer confirmation.
+       Usage: {{< todo >}}Markdown message, may contain [links](…).{{< /todo >}}
+       Tracked centrally in OPEN-QUESTIONS.md. */ -}}
+<aside class="ag-todo" role="note">
+  <span class="ag-todo-label">⚠ TODO — needs customer confirmation</span>
+  {{ .Inner | .Page.RenderString }}
+</aside>
