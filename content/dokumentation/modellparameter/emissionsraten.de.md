@@ -3,6 +3,8 @@ title: Emissionsfaktoren
 weight: 1
 ---
 
+{{< todo >}}**Unterschiedliche Terminologie über die Sprachen:** DE «Emissionsfaktoren», EN «Emission factors», FR «Taux d'émission» (= Emissionsraten). Diese Differenz besteht so auch auf der Live-Website und ist möglicherweise gewollt. Vom Kunden zu entscheiden, ob das FR vereinheitlicht werden soll.{{< /todo >}}
+
 Die Emissionsfaktoren geben an, welcher Anteil des Stickstoffs, der auf den Weiden oder im Stall oder auf den Hofplätzen ausgeschieden wird, der auf den Hofdüngerlagern lagert oder beim Ausbringen von Hofdünger auf Grünland oder Ackerland anfällt, als Ammoniak in die Luft emittiert wird.
 
 Die Emissionsfaktoren werden als Prozentsätze von TAN (Total Ammoniacal Nitrogen) angegeben, d.h. des gelösten Stickstoffanteiles in den Ausscheidungen, aus dem der Hauptteil der Ammoniakemissionen aus Tierhaltung, Hofdüngerlagerung und Hofdüngerausbringung stammt.
