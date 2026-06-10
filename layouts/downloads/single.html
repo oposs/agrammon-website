@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+<div class="ag-page-header">
+    <div class="uk-container">
+        <h1>{{ .Title }}</h1>
+    </div>
+</div>
+
+{{ $dlRoot := $.Site.GetPage "/downloads" }}
+<div class="uk-container">
+    <div class="ag-breadcrumb">
+        <ul class="uk-breadcrumb">
+            <li><a href="{{ $dlRoot.RelPermalink }}">{{ $dlRoot.Title }}</a></li>
+            <li><span>{{ .Title }}</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="uk-container ag-content">
+    {{ .Content }}
+</div>
+
+{{ end }}

@@ -1,0 +1,62 @@
+- id: readMore
+  translation: Read more
+
+- id: backToTop
+  translation: Back to top
+
+- id: contactUs
+  translation: Contact
+
+- id: documentation_grundlagen
+  translation: Principles
+
+- id: documentation_modellparameter
+  translation: Model Parameters
+
+- id: documentation_emissionsraten
+  translation: Emission Rates
+
+- id: documentation_korrekturfaktoren
+  translation: Correction Factors
+
+- id: documentation_technisch
+  translation: Technical Description
+
+- id: modell_einzel
+  translation: Single Farm Model
+
+- id: modell_regional
+  translation: Regional Model
+
+- id: modell_kantonal
+  translation: Cantonal Adaptations
+
+- id: modell_verwendung
+  translation: Usage
+
+- id: downloads_weitere
+  translation: Further Information
+
+- id: downloads_rpackage
+  translation: R package bLSmodelR
+
+- id: developed_by
+  translation: Developed by
+
+- id: supported_by
+  translation: Supported by
+
+- id: footer_contact
+  translation: Contact
+
+- id: model_link_label
+  translation: Open model
+
+- id: modell_einzel_desc
+  translation: Calculate ammonia emissions for an individual farm.
+
+- id: modell_regional_desc
+  translation: Aggregated emission calculations for a region or canton.
+
+- id: modell_kantonal_desc
+  translation: Canton-specific model parameter adjustments for more precise calculations.

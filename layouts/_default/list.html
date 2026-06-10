@@ -1,0 +1,25 @@
+{{ define "main" }}
+
+<div class="ag-page-header">
+    <div class="uk-container">
+        <h1>{{ .Title }}</h1>
+    </div>
+</div>
+
+<div class="uk-container ag-content">
+    {{ with .Content }}
+    <div class="ag-intro">{{ . }}</div>
+    {{ end }}
+
+    {{ if .Pages }}
+    <ul class="ag-section-list uk-margin-top">
+        {{ range .Pages.ByWeight }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+    </ul>
+    {{ end }}
+</div>
+
+{{ end }}

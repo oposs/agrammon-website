@@ -1,0 +1,180 @@
+{{ $currentPage := . }}
+<header>
+    <div class="ag-navbar uk-navbar-container uk-sticky" uk-sticky="show-on-up: true; animation: uk-animation-slide-top; media: 640">
+        <nav class="uk-container uk-container-expand" uk-navbar>
+
+            {{/* ── Logo / Site Name ── */}}
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo ag-logo" href="{{ ($.Site.GetPage (print "/" $.Site.Language.Lang "/")).RelPermalink }}">
+                    Agrammon
+                </a>
+            </div>
+
+            {{/* ── Main nav (desktop, @m and above) ── */}}
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav uk-visible@m">
+                    {{ range $.Site.Menus.main }}
+                        {{ $isActive := or (eq $currentPage.RelPermalink .URL) ($currentPage.HasMenuCurrent "main" .) }}
+
+                        {{ if eq .Identifier "dokumentation" }}
+                            {{/* Documentation dropdown — auto-built from section children */}}
+                            <li class='uk-parent{{ if $isActive }} uk-active{{ end }}'>
+                                <a href="{{ .URL }}">{{ .Name }}</a>
+                                <div class="uk-navbar-dropdown" uk-dropdown="animation: uk-animation-slide-top-small; animate-out: true; offset: -1px">
+                                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                                        {{ $docSection := $.Site.GetPage "/dokumentation" }}
+                                        {{ if $docSection }}
+                                            {{ range $docSection.Pages.ByWeight }}
+                                                <li{{ if eq $currentPage.RelPermalink .RelPermalink }} class="uk-active"{{ end }}>
+                                                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                                                </li>
+                                                {{/* Sub-children (e.g. modellparameter → emissionsraten, korrekturfaktoren) */}}
+                                                {{ if .Pages }}
+                                                <li class="uk-nav-divider"></li>
+                                                {{ range .Pages.ByWeight }}
+                                                <li{{ if eq $currentPage.RelPermalink .RelPermalink }} class="uk-active"{{ end }} style="padding-left:1rem">
+                                                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                                                </li>
+                                                {{ end }}
+                                                <li class="uk-nav-divider"></li>
+                                                {{ end }}
+                                            {{ end }}
+                                        {{ end }}
+                                    </ul>
+                                </div>
+                            </li>
+
+                        {{ else if eq .Identifier "modell" }}
+                            <li{{ if $isActive }} class="uk-active"{{ end }}>
+                                <a href="{{ .URL }}">{{ .Name }}</a>
+                            </li>
+
+                        {{ else if eq .Identifier "downloads" }}
+                            {{/* Downloads dropdown */}}
+                            <li class='uk-parent{{ if $isActive }} uk-active{{ end }}'>
+                                <a href="{{ .URL }}">{{ .Name }}</a>
+                                <div class="uk-navbar-dropdown" uk-dropdown="animation: uk-animation-slide-top-small; animate-out: true; offset: -1px">
+                                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                                        {{ $dlSection := $.Site.GetPage "/downloads" }}
+                                        {{ if $dlSection }}
+                                            {{ range $dlSection.Pages.ByWeight }}
+                                            <li{{ if eq $currentPage.RelPermalink .RelPermalink }} class="uk-active"{{ end }}>
+                                                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                                            </li>
+                                            {{ end }}
+                                        {{ end }}
+                                    </ul>
+                                </div>
+                            </li>
+
+                        {{ else }}
+                            <li{{ if $isActive }} class="uk-active"{{ end }}>
+                                <a href="{{ .URL }}">{{ .Name }}</a>
+                            </li>
+                        {{ end }}
+                    {{ end }}
+
+                    {{/* ── Language switcher + Dark mode toggle ── */}}
+                    <li>
+                        <div class="ag-nav-controls">
+                            <div class="ag-lang-switcher">
+                                {{ range $.Site.Languages }}
+                                    {{ $thisLang := .Lang }}
+                                    {{ $langURL := print "/" $thisLang "/" }}
+                                    {{ range $currentPage.AllTranslations }}
+                                        {{ if eq .Language.Lang $thisLang }}
+                                            {{ $langURL = .RelPermalink }}
+                                        {{ end }}
+                                    {{ end }}
+                                    {{ if ne $thisLang $.Site.Language.Lang }}<span>|</span>{{ end }}
+                                    <a href="{{ $langURL }}"
+                                       class="{{ if eq $thisLang $.Site.Language.Lang }}ag-lang-active{{ end }}">{{ .Params.languageLabel }}</a>
+                                {{ end }}
+                            </div>
+                            <button id="ag-theme-toggle" class="ag-theme-toggle" type="button"
+                                aria-label="Switch to dark mode" title="Switch to dark mode">
+                                <svg class="ag-icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                                <svg class="ag-icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+
+                {{/* ── Mobile menu toggle ── */}}
+                <a class="uk-navbar-toggle uk-hidden@m" href="#ag-offcanvas" uk-toggle style="color:#ffffff">
+                    <span uk-navbar-toggle-icon></span>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    {{/* ── Mobile offcanvas menu ── */}}
+    <div id="ag-offcanvas" class="ag-offcanvas uk-offcanvas" uk-offcanvas="overlay: true; flip: true">
+        <div class="uk-offcanvas-bar">
+            <button class="uk-offcanvas-close" type="button" uk-close style="color:#fff"></button>
+
+            <p class="uk-text-large uk-text-bold" style="color:#fff; margin-bottom:20px;">Agrammon</p>
+
+            <ul class="uk-nav uk-nav-default">
+                {{ range $.Site.Menus.main }}
+                    {{ if eq .Identifier "dokumentation" }}
+                        <li class="uk-parent">
+                            <a style="color:#fff">{{ .Name }}</a>
+                            <ul class="uk-nav-sub">
+                                {{ $docSection := $.Site.GetPage "/dokumentation" }}
+                                {{ if $docSection }}
+                                    {{ range $docSection.Pages.ByWeight }}
+                                    <li><a href="{{ .RelPermalink }}" style="color:rgba(255,255,255,0.85)">{{ .Title }}</a></li>
+                                    {{ if .Pages }}
+                                        {{ range .Pages.ByWeight }}
+                                        <li style="padding-left:1rem"><a href="{{ .RelPermalink }}" style="color:rgba(255,255,255,0.75)">{{ .Title }}</a></li>
+                                        {{ end }}
+                                    {{ end }}
+                                    {{ end }}
+                                {{ end }}
+                            </ul>
+                        </li>
+                    {{ else if eq .Identifier "modell" }}
+                        <li><a href="{{ .URL }}" style="color:#fff">{{ .Name }}</a></li>
+                    {{ else if eq .Identifier "downloads" }}
+                        <li class="uk-parent">
+                            <a href="{{ .URL }}" style="color:#fff">{{ .Name }}</a>
+                            <ul class="uk-nav-sub">
+                                {{ $dlSection := $.Site.GetPage "/downloads" }}
+                                {{ if $dlSection }}
+                                    {{ range $dlSection.Pages.ByWeight }}
+                                    <li><a href="{{ .RelPermalink }}" style="color:rgba(255,255,255,0.85)">{{ .Title }}</a></li>
+                                    {{ end }}
+                                {{ end }}
+                            </ul>
+                        </li>
+                    {{ else }}
+                        <li><a href="{{ .URL }}" style="color:#fff">{{ .Name }}</a></li>
+                    {{ end }}
+                {{ end }}
+
+                <li class="uk-nav-divider"></li>
+                <li>
+                    <button id="ag-theme-toggle-mobile" class="ag-theme-toggle" type="button"
+                        aria-label="Switch to dark mode" title="Switch to dark mode"
+                        style="background:transparent; border:none; color:rgba(255,255,255,0.85); cursor:pointer; padding:4px 0;">
+                        <svg class="ag-icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                        <svg class="ag-icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    </button>
+                </li>
+
+                {{/* Language links in mobile menu */}}
+                {{ range $.Site.Languages }}
+                    {{ $thisLang := .Lang }}
+                    {{ $langURL := print "/" $thisLang "/" }}
+                    {{ range $currentPage.AllTranslations }}
+                        {{ if eq .Language.Lang $thisLang }}{{ $langURL = .RelPermalink }}{{ end }}
+                    {{ end }}
+                    <li><a href="{{ $langURL }}" style="color:rgba(255,255,255,{{ if eq $thisLang $.Site.Language.Lang }}1{{ else }}0.7{{ end }})">
+                        {{ if eq $thisLang $.Site.Language.Lang }}→ {{ end }}{{ .LanguageName }}
+                    </a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+</header>

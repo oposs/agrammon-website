@@ -1,0 +1,36 @@
+<head>
+    <meta charset="utf-8">
+    {{/* ── Anti-FOUC: apply dark class before first paint ── */}}
+    <script>(function(){var s=localStorage.getItem('ag-theme'),p=window.matchMedia('(prefers-color-scheme: dark)').matches;if(s==='dark'||(!s&&p))document.documentElement.classList.add('dark');}());</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+    {{/* ── Favicon ── */}}
+    {{ with .Site.Params.favicon }}
+        {{ $favicon := resources.Get . }}
+        {{ if $favicon }}
+        <link rel="icon" type="image/png" href="{{ $favicon.RelPermalink }}">
+        {{ end }}
+    {{ end }}
+
+    {{/* ── CSS: compile site.scss (includes UIkit) via LibSass ── */}}
+    {{ $scssOpts := dict
+        "targetPath" "css/site.css"
+        "outputStyle" "compressed"
+        "transpiler" "dartsass"
+        "includePaths" (slice "assets")
+        "silenceDeprecations" (slice "import" "global-builtin" "color-functions")
+    }}
+    {{ $css := resources.Get "scss/site.scss" | css.Sass $scssOpts | fingerprint }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
+    {{/* ── UIkit JS ── */}}
+    {{ $uikitJS := resources.Get "uikit/dist/js/uikit.min.js" | fingerprint }}
+    <script src="{{ $uikitJS.RelPermalink }}" integrity="{{ $uikitJS.Data.Integrity }}"></script>
+    {{ $uikitIcons := resources.Get "uikit/dist/js/uikit-icons.min.js" | fingerprint }}
+    <script src="{{ $uikitIcons.RelPermalink }}" integrity="{{ $uikitIcons.Data.Integrity }}"></script>
+    {{/* ── Theme toggle JS ── */}}
+    {{ $themeJS := resources.Get "js/theme.js" | fingerprint }}
+    <script src="{{ $themeJS.RelPermalink }}" integrity="{{ $themeJS.Data.Integrity }}" defer></script>
+</head>

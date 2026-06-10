@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+<div class="ag-page-header">
+    <div class="uk-container">
+        <h1>{{ .Title }}</h1>
+    </div>
+</div>
+
+{{ $section := .CurrentSection }}
+{{ if and (not $section.IsHome) (ne $section.RelPermalink .RelPermalink) }}
+{{ $root := $.Site.GetPage (print "/" $section.File.Dir | strings.TrimSuffix "/") }}
+<div class="uk-container">
+    <div class="ag-breadcrumb">
+        <ul class="uk-breadcrumb">
+            <li><a href="{{ $section.RelPermalink }}">{{ $section.Title }}</a></li>
+            <li><span>{{ .Title }}</span></li>
+        </ul>
+    </div>
+</div>
+{{ end }}
+
+<div class="uk-container ag-content">
+    {{ .Content }}
+</div>
+
+{{ end }}

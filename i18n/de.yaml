@@ -1,0 +1,62 @@
+- id: readMore
+  translation: Mehr erfahren
+
+- id: backToTop
+  translation: Nach oben
+
+- id: contactUs
+  translation: Kontakt
+
+- id: documentation_grundlagen
+  translation: Verwendete Grundlagen
+
+- id: documentation_modellparameter
+  translation: Modellparameter
+
+- id: documentation_emissionsraten
+  translation: Emissionsraten
+
+- id: documentation_korrekturfaktoren
+  translation: Korrekturfaktoren
+
+- id: documentation_technisch
+  translation: Technische Modellbeschreibung
+
+- id: modell_einzel
+  translation: Einzelbetriebsmodell
+
+- id: modell_regional
+  translation: Regionalmodell
+
+- id: modell_kantonal
+  translation: Kantonale Anpassungen
+
+- id: modell_verwendung
+  translation: Verwendung
+
+- id: downloads_weitere
+  translation: Weitere Informationen
+
+- id: downloads_rpackage
+  translation: R-Paket bLSmodelR
+
+- id: developed_by
+  translation: Entwickelt von
+
+- id: supported_by
+  translation: Unterstützt von
+
+- id: footer_contact
+  translation: Kontakt
+
+- id: model_link_label
+  translation: Zum Modell
+
+- id: modell_einzel_desc
+  translation: Berechnung der Ammoniakemissionen für einen einzelnen landwirtschaftlichen Betrieb.
+
+- id: modell_regional_desc
+  translation: Aggregierte Berechnung der Emissionen für eine Region oder einen Kanton.
+
+- id: modell_kantonal_desc
+  translation: Kantonsspezifische Anpassungen der Modellparameter für präzisere Berechnungen.

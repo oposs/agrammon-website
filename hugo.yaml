@@ -1,0 +1,144 @@
+baseURL: "https://agrammon.ch/"
+title: "Agrammon"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true   # allow raw HTML in markdown (used in download lists)
+
+defaultContentLanguage: de
+defaultContentLanguageInSubdir: true
+
+imaging:
+  resampleFilter: Lanczos
+  quality: 90
+  anchor: Top
+
+params:
+  favicon: img/favicon.png
+
+# ─── Languages ──────────────────────────────────────────────────────────────
+
+languages:
+  de:
+    languageCode: de-ch
+    languageName: Deutsch
+    weight: 1
+    params:
+      languageLabel: DE
+    menus:
+      main:
+        - identifier: home
+          name: Willkommen
+          url: /de/
+          weight: 1
+        - identifier: dokumentation
+          name: Dokumentation
+          url: /de/dokumentation/
+          weight: 2
+          params:
+            hasDropdown: true
+        - identifier: modell
+          name: Modell Agrammon
+          url: /de/modell/
+          weight: 3
+        - identifier: downloads
+          name: Downloads
+          url: /de/downloads/
+          weight: 4
+          params:
+            hasDropdown: true
+        - identifier: kontakt
+          name: Kontakt
+          url: /de/kontakt/
+          weight: 5
+        - identifier: ueber-uns
+          name: Über uns
+          url: /de/ueber-uns/
+          weight: 6
+        - identifier: links
+          name: Links
+          url: /de/links/
+          weight: 7
+
+  en:
+    languageCode: en
+    languageName: English
+    weight: 2
+    params:
+      languageLabel: EN
+    menus:
+      main:
+        - identifier: home
+          name: Welcome
+          url: /en/
+          weight: 1
+        - identifier: dokumentation
+          name: Documentation
+          url: /en/dokumentation/
+          weight: 2
+          params:
+            hasDropdown: true
+        - identifier: modell
+          name: Agrammon Model
+          url: /en/modell/
+          weight: 3
+        - identifier: downloads
+          name: Downloads
+          url: /en/downloads/
+          weight: 4
+          params:
+            hasDropdown: true
+        - identifier: kontakt
+          name: Contact
+          url: /en/kontakt/
+          weight: 5
+        - identifier: ueber-uns
+          name: About Us
+          url: /en/ueber-uns/
+          weight: 6
+        - identifier: links
+          name: Links
+          url: /en/links/
+          weight: 7
+
+  fr:
+    languageCode: fr-ch
+    languageName: Français
+    weight: 3
+    params:
+      languageLabel: FR
+    menus:
+      main:
+        - identifier: home
+          name: Accueil
+          url: /fr/
+          weight: 1
+        - identifier: dokumentation
+          name: Documentation
+          url: /fr/dokumentation/
+          weight: 2
+          params:
+            hasDropdown: true
+        - identifier: modell
+          name: Modèle Agrammon
+          url: /fr/modell/
+          weight: 3
+        - identifier: downloads
+          name: Télécharger
+          url: /fr/downloads/
+          weight: 4
+          params:
+            hasDropdown: true
+        - identifier: kontakt
+          name: Contact
+          url: /fr/kontakt/
+          weight: 5
+        - identifier: ueber-uns
+          name: Qui sommes-nous?
+          url: /fr/ueber-uns/
+          weight: 6
+        - identifier: links
+          name: Liens
+          url: /fr/links/
+          weight: 7

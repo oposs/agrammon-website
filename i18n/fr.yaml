@@ -1,0 +1,62 @@
+- id: readMore
+  translation: En savoir plus
+
+- id: backToTop
+  translation: Haut de page
+
+- id: contactUs
+  translation: Contact
+
+- id: documentation_grundlagen
+  translation: Principes
+
+- id: documentation_modellparameter
+  translation: Paramètres du modèle
+
+- id: documentation_emissionsraten
+  translation: Taux d'émission
+
+- id: documentation_korrekturfaktoren
+  translation: Facteurs de correction
+
+- id: documentation_technisch
+  translation: Description technique
+
+- id: modell_einzel
+  translation: Exploitation individuelle
+
+- id: modell_regional
+  translation: Modèle régional
+
+- id: modell_kantonal
+  translation: Adaptations cantonales
+
+- id: modell_verwendung
+  translation: Utilisation
+
+- id: downloads_weitere
+  translation: Informations supplémentaires
+
+- id: downloads_rpackage
+  translation: Paquet R bLSmodelR
+
+- id: developed_by
+  translation: Développé par
+
+- id: supported_by
+  translation: Soutenu par
+
+- id: footer_contact
+  translation: Contact
+
+- id: model_link_label
+  translation: Accéder au modèle
+
+- id: modell_einzel_desc
+  translation: Calcul des émissions d'ammoniac pour une exploitation agricole individuelle.
+
+- id: modell_regional_desc
+  translation: Calcul agrégé des émissions pour une région ou un canton.
+
+- id: modell_kantonal_desc
+  translation: Adaptations des paramètres du modèle spécifiques au canton pour des calculs plus précis.

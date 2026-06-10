@@ -1,0 +1,513 @@
+// ─── Agrammon Brand Colors ───────────────────────────────────────────────────
+$ag-green:        #479c07;   // primary: headings, links, accents
+$ag-green-dark:   #3a8006;   // hover state
+$ag-olive:        #7b9051;   // header/footer background
+$ag-olive-light:  #8fa464;   // hover on olive bg
+$ag-light:        #f4f7f0;   // very light green-tinted background
+$ag-text:         #2c2c2c;   // body text
+
+// ─── UIkit Variable Overrides (must come BEFORE the @import) ─────────────────
+
+// Global
+$global-color:                    $ag-text;
+$global-link-color:               $ag-green;
+$global-link-hover-color:         $ag-green-dark;
+$global-muted-color:              #6c757d;
+$global-emphasis-color:           #1a1a1a;
+$global-background:               #ffffff;
+
+// Base
+$base-heading-color:              $ag-text;
+$base-link-color:                 $ag-green;
+$base-link-hover-color:           $ag-green-dark;
+$base-pre-background:             $ag-light;
+$base-code-color:                 $ag-green-dark;
+
+// Navbar
+$navbar-background:               $ag-olive;
+$navbar-nav-item-color:           #ffffff;
+$navbar-nav-item-hover-color:     #ffffff;
+$navbar-nav-item-onclick-color:   #ffffff;
+$navbar-nav-item-active-color:    #ffffff;
+$navbar-nav-item-height:          70px;
+$navbar-nav-item-padding-horizontal: 16px;
+$navbar-dropdown-background:      #ffffff;
+$navbar-dropdown-nav-item-color:  $ag-text;
+$navbar-dropdown-nav-item-hover-color: $ag-green;
+
+// Offcanvas
+$offcanvas-bar-background:        $ag-olive;
+$offcanvas-bar-color-mode:        light;
+
+// Button
+$button-primary-background:          $ag-green;
+$button-primary-hover-background:    $ag-green-dark;
+$button-primary-active-background:   $ag-green-dark;
+$button-primary-color:               #ffffff;
+$button-primary-hover-color:         #ffffff;
+$button-primary-active-color:        #ffffff;
+
+// Card
+$card-primary-background:        $ag-light;
+
+// ─── Dart Sass color module (for color.adjust) ───────────────────────────────
+@use "sass:color";
+
+// ─── UIkit Core (uses legacy @import — deprecation warnings suppressed) ───────
+@import "../uikit/src/scss/variables-theme.scss";
+@import "../uikit/src/scss/mixins-theme.scss";
+@import "../uikit/src/scss/uikit-theme.scss";
+
+// ─── Custom Site Styles ──────────────────────────────────────────────────────
+
+body {
+    font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+}
+
+// Header / Navbar
+.ag-navbar {
+    background-color: $ag-olive;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.ag-navbar .uk-navbar-nav > li > a {
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+
+    &:hover,
+    &:focus {
+        color: #ffffff;
+        background-color: $ag-olive-light;
+    }
+}
+
+.ag-navbar .uk-navbar-nav > li.uk-active > a {
+    color: #ffffff;
+    background-color: rgba(255,255,255,0.15);
+}
+
+// Force dropdown nav text to dark — UIkit's uk-light color-mode bleeds in from the olive navbar
+// Use !important to override the high-specificity .uk-light a { color: #fff } chain
+.ag-navbar .uk-navbar-dropdown .uk-navbar-dropdown-nav > li > a {
+    color: $ag-text !important;
+    &:hover { color: $ag-green !important; }
+}
+
+.ag-navbar .uk-navbar-dropdown .uk-nav-divider { border-top-color: #e5e5e5; }
+
+.ag-navbar .uk-logo {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.04em;
+
+    &:hover { color: #ffffff; text-decoration: none; }
+
+    .ag-logo-dot { color: $ag-green; }
+}
+
+// Language switcher + dark mode toggle wrapper
+.ag-nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 12px;
+    margin-top: 20px;
+}
+
+// Language switcher in navbar
+.ag-lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.82rem;
+
+    a {
+        color: rgba(255,255,255,0.8);
+        text-decoration: none;
+        padding: 2px 4px;
+        border-radius: 3px;
+
+        &:hover { color: #ffffff; background: rgba(255,255,255,0.15); }
+        &.ag-lang-active { color: #ffffff; font-weight: 700; }
+    }
+
+    span { color: rgba(255,255,255,0.4); }
+}
+
+// Mobile offcanvas
+.ag-offcanvas .uk-offcanvas-bar {
+    background: $ag-olive;
+}
+.ag-offcanvas .uk-nav-default > li > a,
+.ag-offcanvas .uk-nav-sub > li > a {
+    color: #ffffff;
+    &:hover { color: #ffffff; padding-left: 8px; }
+}
+.ag-offcanvas .uk-nav-default .uk-nav-header {
+    color: rgba(255,255,255,0.6);
+}
+.ag-offcanvas .uk-nav-divider {
+    border-top-color: rgba(255,255,255,0.2);
+}
+
+// Hero slideshow
+.ag-hero {
+    position: relative;
+}
+
+.ag-hero-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.55));
+    padding: 40px 24px 24px;
+    color: #ffffff;
+}
+
+// Page header (non-homepage)
+.ag-page-header {
+    background-color: #ffffff;
+    padding: 20px 0 10px;
+    margin-bottom: 0;
+
+    h1 {
+        color: $ag-green;
+        margin: 0;
+        font-size: 2.4rem;
+    }
+}
+
+// Breadcrumb
+.ag-breadcrumb {
+    background: $ag-light;
+    border-bottom: 1px solid color.adjust($ag-light, $lightness: -6%);
+    padding: 4px 12px 0;
+    font-size: 0.85rem;
+
+    .uk-breadcrumb {
+        margin-bottom: 4px;
+    }
+
+    .uk-breadcrumb > * > * {
+        color: $ag-olive;
+    }
+    .uk-breadcrumb > :last-child > * {
+        color: $ag-text;
+    }
+    .uk-breadcrumb > :not(:last-child)::after {
+        color: $ag-olive;
+    }
+}
+
+// Content area
+.ag-content {
+    padding: 20px 0 60px;
+}
+
+.ag-content h1 { color: $ag-green; }
+.ag-content h2 { color: $ag-green; border-bottom: 2px solid $ag-light; padding-bottom: 6px; }
+.ag-content h3 { color: $ag-olive; }
+.ag-content a { color: $ag-green; }
+.ag-content a:hover { color: $ag-green-dark; }
+
+// Section list (documentation sub-items)
+.ag-section-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        border-left: 3px solid $ag-green;
+        margin-bottom: 8px;
+
+        a {
+            display: block;
+            padding: 8px 14px;
+            color: $ag-text;
+            text-decoration: none;
+            background: $ag-light;
+
+            &:hover {
+                background: color.adjust($ag-light, $lightness: -4%);
+                color: $ag-green;
+            }
+        }
+    }
+}
+
+// Intro box on homepage
+.ag-intro {
+    background: $ag-light;
+    border-left: 5px solid $ag-green;
+    padding: 28px 32px 28px;
+    margin: 40px 0;
+    font-size: 1.08rem;
+    line-height: 1.7;
+
+    > :last-child { margin-bottom: 0; }
+}
+
+// Credits / partner logos section
+.ag-credits {
+    background: $ag-light;
+    padding: 32px 0;
+    border-top: 1px solid color.adjust($ag-light, $lightness: -8%);
+
+    h3 {
+        color: $ag-olive;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 12px;
+    }
+}
+
+// Model links cards
+.ag-model-cards {
+    .ag-model-card {
+        background: #fff;
+        border: 1px solid color.adjust($ag-light, $lightness: -8%);
+        border-top: 4px solid $ag-green;
+        padding: 24px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        h3 { color: $ag-green; margin-top: 0; }
+
+        p { flex: 1; }
+
+        .ag-model-link {
+            display: inline-block;
+            margin-top: 12px;
+            background: $ag-green;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 0.9rem;
+
+            &:hover { background: $ag-green-dark; color: #fff; }
+        }
+    }
+}
+
+// Download list
+.ag-downloads {
+    list-style: none;
+    padding: 0;
+
+    li {
+        padding: 10px 0;
+        border-bottom: 1px solid color.adjust($ag-light, $lightness: -6%);
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+
+        &:before {
+            content: "↓";
+            color: $ag-green;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        a { color: $ag-green; }
+        a:hover { color: $ag-green-dark; }
+
+        .ag-dl-note {
+            font-size: 0.85rem;
+            color: $global-muted-color;
+        }
+    }
+}
+
+// Footer
+.ag-footer {
+    background: $ag-olive;
+    color: rgba(255,255,255,0.9);
+    padding: 16px 0;
+    font-size: 0.9rem;
+
+    a { color: rgba(255,255,255,0.85); &:hover { color: #ffffff; } }
+
+    h4 {
+        color: #ffffff;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 10px;
+    }
+
+    .ag-footer-copy {
+        color: rgba(255,255,255,0.6);
+        font-size: 0.9rem;
+        text-align: center;
+    }
+}
+
+// Team portraits (About Us page)
+.ag-team-section h2 a {
+    color: $ag-green;
+    text-decoration: none;
+    &:hover { color: $ag-green-dark; }
+}
+
+.ag-team-role-label {
+    color: $ag-olive;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+}
+
+.ag-portrait {
+    text-align: center;
+    width: 130px;
+}
+
+.ag-portrait-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid $ag-light;
+    display: block;
+    margin: 0 auto 8px;
+}
+
+.ag-portrait-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: $ag-light;
+    border: 3px solid color.adjust($ag-light, $lightness: -8%);
+    margin: 0 auto 8px;
+}
+
+.ag-portrait-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0;
+    color: $ag-text;
+}
+
+// Dark mode toggle button
+.ag-theme-toggle {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.85);
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+
+    &:hover { color: #ffffff; }
+
+    .ag-icon-sun  { display: none; }
+    .ag-icon-moon { display: block; }
+}
+
+html.dark .ag-theme-toggle {
+    .ag-icon-sun  { display: block; }
+    .ag-icon-moon { display: none; }
+}
+
+// Utility
+.ag-text-green { color: $ag-green; }
+.ag-bg-light   { background-color: $ag-light; }
+
+// ─── Dark Mode ───────────────────────────────────────────────────────────────
+html.dark {
+    color-scheme: dark;
+    background-color: #1c1f1a;
+
+    body {
+        background-color: #1c1f1a;
+        color: #dde5d5;
+    }
+
+    .ag-page-header {
+        background-color: #1c1f1a;
+    }
+
+    .ag-breadcrumb {
+        background: #252b22;
+        border-bottom-color: #3a4236;
+
+        .uk-breadcrumb > * > * { color: #8fa464; }
+        .uk-breadcrumb > :last-child > * { color: #dde5d5; }
+        .uk-breadcrumb > :not(:last-child)::after { color: #8fa464; }
+    }
+
+    .ag-content {
+        h2 { border-bottom-color: #3a4236; }
+        h3 { color: #8fa464; }
+        p, li { color: #dde5d5; }
+    }
+
+    .ag-intro {
+        background: #252b22;
+    }
+
+    .ag-credits {
+        background: #252b22;
+        border-top-color: #3a4236;
+        h3 { color: #8fa464; }
+    }
+
+    .ag-model-cards .ag-model-card {
+        background: #252b22;
+        border-color: #3a4236;
+    }
+
+    .ag-section-list li a {
+        background: #252b22;
+        color: #dde5d5;
+        &:hover {
+            background: #2e352a;
+            color: $ag-green;
+        }
+    }
+
+    .ag-downloads li {
+        border-bottom-color: #3a4236;
+    }
+
+    .ag-portrait-img { border-color: #3a4236; }
+    .ag-portrait-placeholder { background: #252b22; border-color: #3a4236; }
+    .ag-portrait-name { color: #dde5d5; }
+    .ag-team-role-label { color: #8fa464; }
+
+    .ag-navbar .uk-navbar-dropdown {
+        background: #252b22;
+        border: 1px solid #3a4236;
+    }
+
+    .ag-navbar .uk-navbar-dropdown .uk-navbar-dropdown-nav > li > a {
+        color: #dde5d5 !important;
+        &:hover { color: $ag-green !important; }
+    }
+
+    .ag-navbar .uk-navbar-dropdown .uk-nav-divider {
+        border-top-color: #3a4236;
+    }
+
+    .uk-card-default {
+        background-color: #252b22;
+        color: #dde5d5;
+    }
+
+    .ag-bg-light { background-color: #252b22; }
+}
+
+// Responsive adjustments
+@media (max-width: 640px) {
+    .ag-page-header h1 { font-size: 1.7rem; }
+    .ag-intro { padding: 18px 20px; }
+}
