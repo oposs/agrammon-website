@@ -1,6 +1,7 @@
 ---
 title: Contact
 weight: 5
+type: kontakt
 ---
 
 ## Technical inquiries about the model

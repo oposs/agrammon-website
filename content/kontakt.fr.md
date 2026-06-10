@@ -1,6 +1,7 @@
 ---
 title: Contact
 weight: 5
+type: kontakt
 ---
 
 ## Questions scientifiques sur le modèle

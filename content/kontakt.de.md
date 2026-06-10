@@ -1,6 +1,7 @@
 ---
 title: Kontakt
 weight: 5
+type: kontakt
 ---
 
 ## Fachliche Anfragen zum Modell
