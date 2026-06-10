@@ -1,8 +1,8 @@
 name: Deploy Hugo site
 
+# Official-hosting deploy. Manual-only for now — hosting is still TBD.
+# Run from the Actions tab via "Run workflow" once secrets are configured.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 concurrency:
@@ -18,7 +18,7 @@ jobs:
 
       - name: Install Hugo Extended
         env:
-          HUGO_VERSION: "0.157.0"
+          HUGO_VERSION: "0.163.0"
         run: |
           wget -q "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
           sudo dpkg -i "hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
