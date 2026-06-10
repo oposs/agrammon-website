@@ -8,3 +8,5 @@ Les taux d'émission indiquent quelle proportion de l'azote excrété sur les p�
 Les taux d'émission sont exprimés en pourcentage du TAN (azote ammoniacal total), la fraction d'azote soluble responsable de la majeure partie des émissions d'ammoniac provenant de l'élevage, du stockage et de l'épandage des engrais de ferme.
 
 D'autres sources d'émission sont également prises en compte : l'épandage d'engrais minéraux et d'engrais de recyclage (en % de l'azote total ou dissous) ainsi que les processus pédologiques et végétaux (en kg d'azote ammoniacal par hectare de surface agricole).
+
+Les taux d'émission utilisés par le modèle figurent sous [Description technique du modèle]({{< relref "/dokumentation/technische-beschreibung" >}}).

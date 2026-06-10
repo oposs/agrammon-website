@@ -14,3 +14,5 @@ Les facteurs de correction tiennent compte des procédés techniques de producti
 **Stockage des engrais de ferme :** Couverture des fosses à lisier et fréquence d'agitation.
 
 **Épandage des engrais de ferme :** Techniques d'épandage réduisant les émissions d'ammoniac, saisonnalité et conditions météorologiques, heure d'épandage et incorporation du fumier solide.
+
+Les facteurs de correction utilisés dans le modèle figurent sous [Description technique du modèle]({{< relref "/dokumentation/technische-beschreibung" >}}).

@@ -14,3 +14,5 @@ Die Korrekturfaktoren berücksichtigen produktionstechnische Verfahren, welche d
 **Hofdüngerlagerung:** Abdeckung der Güllebehälter und Rührfrequenz der Güllebehälter.
 
 **Hofdüngerausbringung:** Ammoniakemissionsarme Ausbringtechnik, Saisonalität und Witterung, Tageszeit sowie Einarbeitung von Festmist.
+
+Die im Modell verwendeten Korrekturfaktoren sind aufgeführt unter [Technische Modellbeschreibung]({{< relref "/dokumentation/technische-beschreibung" >}}).

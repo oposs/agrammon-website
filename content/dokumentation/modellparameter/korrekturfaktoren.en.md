@@ -14,3 +14,5 @@ Correction factors account for production techniques that reduce or increase nit
 **Manure storage:** Slurry pit covers and stirring frequency.
 
 **Manure application:** Ammonia-reducing spreading methods, seasonal and weather timing, time of day, and post-application solid manure incorporation.
+
+The correction factors used in the model are listed under [Technical Model Description]({{< relref "/dokumentation/technische-beschreibung" >}}).
