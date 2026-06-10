@@ -5,6 +5,10 @@ weight: 1
 
 Le modèle s'appuie sur des expériences scientifiques menées en Suisse dans la mesure du possible. Lorsque des données manquaient, des sources internationales ont été intégrées et adaptées aux conditions suisses.
 
+<!-- TODO(customer): MISSING LINK — on live agrammon.ch "UNECE (...)" is hyperlinked to
+     http://www.unece.org/env/documents/2007/eb/wg5/WGSR40/ece.eb.air.wg.5.2007.13.e.pdf
+     That URL currently returns HTTP 403 (possibly dead). Confirm correct/current target
+     with the customer before re-adding the link. See OPEN-QUESTIONS.md. -->
 Les bases de calcul ont été harmonisées avec les valeurs proposées par la UNECE (Commission économique des Nations Unies pour l'Europe).
 
 En l'absence de résultats expérimentaux, des estimations d'experts ont été utilisées. Le modèle est continuellement révisé et amélioré à mesure que de nouveaux résultats de recherche deviennent disponibles.
