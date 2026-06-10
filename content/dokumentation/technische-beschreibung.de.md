@@ -3,26 +3,8 @@ title: Technische Modellbeschreibung
 weight: 3
 ---
 
-Die technische Dokumentation umfasst drei Hauptressourcen:
+- Das Dokument [Technische Parameter Modell Agrammon]({{< relref "/downloads" >}}) fasst die wichtigsten im Modell verwendeten Grössen zusammen.
+- Die [Dokumentation Technische Parameter Modell Agrammon]({{< relref "/downloads" >}}) enthält eine Zusammenfassung der nachfolgend aufgeführten Technischen Prozessbeschreibung.
+- Auf [GitHub](https://github.com/oposs/agrammon) lässt sich das Modell vollumfänglich nachvollziehen.
 
-## Zusammenfassung der technischen Parameter
-
-Eine deutschsprachige Zusammenfassung der wichtigsten im Modell verwendeten Variablen.
-
-[Technische Parameter herunterladen (PDF)](/downloads/technische-parameter.pdf)
-
-## Dokumentationsübersicht
-
-Eine Zusammenfassung der unten beschriebenen technischen Prozessbeschreibung.
-
-[Dokumentationsübersicht herunterladen (PDF)](/downloads/dokumentationsuebersicht.pdf)
-
-## Detaillierte technische Prozessbeschreibung
-
-Eine englischsprachige PDF-Dokumentation mit umfassenden Informationen, einschliesslich:
-
-- Beschreibung aller im Modell verwendeten Variablen mit entsprechenden Referenzen
-- Modularer Aufbau des Modells
-- Alle Berechnungsformeln
-
-[Technische Prozessbeschreibung herunterladen (PDF, EN)](/downloads/technical-description.pdf)
+Falls Sie Fragen zum Modell haben, wenden Sie sich an die unter [Kontakt]({{< relref "/kontakt" >}}) angegebene Adresse.
