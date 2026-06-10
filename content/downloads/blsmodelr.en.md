@@ -1,6 +1,6 @@
 ---
 title: R package bLSmodelR
-weight: 2
+weight: 4
 ---
 
 The R package **bLSmodelR** provides functions to set up and run a backward Lagrangian stochastic (bLS) dispersion model with the statistical software R.

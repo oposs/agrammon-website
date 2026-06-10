@@ -1,6 +1,6 @@
 ---
 title: Paquet R bLSmodelR
-weight: 2
+weight: 4
 ---
 
 Le paquet R **bLSmodelR** fournit des fonctions pour configurer et exécuter un modèle de dispersion stochastique lagrangien rétrograde (bLS) avec le logiciel statistique R.

@@ -1,0 +1,6 @@
+{{- /* Link render hook: make root-relative /assets/ links (PDFs etc.) base-URL
+       aware via relURL, so they resolve under the GitHub Pages subpath too.
+       relref-generated and external links pass through unchanged. */ -}}
+{{- $u := .Destination -}}
+{{- if strings.HasPrefix $u "/assets/" }}{{ $u = $u | relURL }}{{ end -}}
+<a href="{{ $u }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
