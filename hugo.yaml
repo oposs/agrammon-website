@@ -26,6 +26,7 @@ languages:
     weight: 1
     params:
       languageLabel: DE
+      languageName: Deutsch
     menus:
       main:
         - identifier: home
@@ -67,6 +68,7 @@ languages:
     weight: 2
     params:
       languageLabel: EN
+      languageName: English
     menus:
       main:
         - identifier: home
@@ -108,6 +110,7 @@ languages:
     weight: 3
     params:
       languageLabel: FR
+      languageName: Français
     menus:
       main:
         - identifier: home

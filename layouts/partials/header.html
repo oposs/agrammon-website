@@ -171,7 +171,7 @@
                         {{ if eq .Language.Lang $thisLang }}{{ $langURL = .RelPermalink }}{{ end }}
                     {{ end }}
                     <li><a href="{{ $langURL }}" style="color:rgba(255,255,255,{{ if eq $thisLang $.Site.Language.Lang }}1{{ else }}0.7{{ end }})">
-                        {{ if eq $thisLang $.Site.Language.Lang }}→ {{ end }}{{ .Name }}
+                        {{ if eq $thisLang $.Site.Language.Lang }}→ {{ end }}{{ .Params.languageName }}
                     </a></li>
                 {{ end }}
             </ul>
