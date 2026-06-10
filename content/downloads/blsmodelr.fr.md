@@ -13,13 +13,6 @@ Le paquet R **bLSmodelR** fournit des fonctions pour configurer et exécuter un 
 - Calcule les relations concentration/émission (C/E) à partir d'ensembles de trajectoires
 - Ne modélise pas la déposition ni les réactions chimiques
 
-## Disponibilité
+Une version à jour du paquet est disponible sur GitHub : [github.com/ChHaeni/bLSmodelR](https://github.com/ChHaeni/bLSmodelR)
 
-Une version à jour du paquet est disponible sur GitHub :
-
-[https://github.com/ChHaeni/bLSmodelR](https://github.com/ChHaeni/bLSmodelR)
-
-## Références
-
-- Flesch et al. (1995, 2004) : Méthodes stochastiques lagrangiennes rétrogrades
-- Flesch (1996) : Estimation des émissions à partir de mesures de gaz traceurs
+*La description complète avec les formules et les références n'est disponible qu'en anglais :* [bLSmodelR – ouvrir la page en anglais]({{< relref path="/downloads/blsmodelr" lang="en" >}})

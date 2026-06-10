@@ -13,13 +13,6 @@ Das R-Paket **bLSmodelR** stellt Funktionen zur Einrichtung und Ausführung eine
 - Berechnet Konzentrations-/Emissionsverhältnisse aus Trajektorienensembles
 - Berücksichtigt keine Deposition oder chemischen Reaktionen
 
-## Verfügbarkeit
+Eine aktuelle Version des Pakets ist auf GitHub verfügbar: [github.com/ChHaeni/bLSmodelR](https://github.com/ChHaeni/bLSmodelR)
 
-Eine aktuelle Version des Pakets ist auf GitHub verfügbar:
-
-[https://github.com/ChHaeni/bLSmodelR](https://github.com/ChHaeni/bLSmodelR)
-
-## Referenzen
-
-- Flesch et al. (1995, 2004): Rückwärts-zeitliche Lagrangesche stochastische Methoden
-- Flesch (1996): Emissionsschätzung aus Spurengasmessungen
+*Die vollständige Beschreibung mit Formeln und Referenzen ist nur auf Englisch verfügbar:* [bLSmodelR – englische Seite öffnen]({{< relref path="/downloads/blsmodelr" lang="en" >}})
