@@ -3,7 +3,7 @@ title: Links
 weight: 7
 ---
 
-These links lead to websites with further information regarding ammonia in agriculture.
+These links lead to websites with further information regarding ammonia in agriculture, and ammonia research in Switzerland and Europe.
 
 ## Authorities
 
@@ -13,8 +13,9 @@ These links lead to websites with further information regarding ammonia in agric
 
 - [Cercl'Air – Swiss Society of Air Hygiene Specialists](https://www.cerclair.ch)
 - [EAGER – Swiss ammonia research initiative](http://www.eager.ch)
+- [National platform Ammonia](https://www.ammoniak.ch/home)
 
 ## International organisations
 
-- [UNECE – Long-Range Transboundary Air Pollution (LRTAP)](https://unece.org/environment-policy/air)
-- [European Nitrogen Assessment (ENA)](https://www.nine-esf.org/)
+- [UNECE – Long-Range Transboundary Air Pollution (LRTAP)](https://unece.org/environmental-policy/air/protocol-abate-acidification-eutrophication-and-ground-level-ozone)
+- [European Nitrogen Assessment (ENA)](http://www.nine-esf.org/node/204/ENA.html)
