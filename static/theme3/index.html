@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agrammon — Designvorschlag 2 (Start)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme3.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="dot"></span>Agrammon</a>
+    <nav class="main">
+      <a href="design-doc.html">Dokumentation</a><a href="design-modell.html">Modell</a>
+      <a href="design-downloads.html">Downloads</a><a href="design-contact.html">Kontakt</a><a href="design-about.html">Über uns</a>
+    </nav>
+    <div class="lang"><b>DE</b><span>/</span>EN<span>/</span>FR</div>
+  </div>
+</header>
+
+<section class="hero3">
+  <div class="copy">
+    <div class="inner">
+      <span class="eyebrow">Ammoniak-Emissionsmodell · Schweizer Landwirtschaft</span>
+      <h1>Stickstoff, der <em>in die Luft</em> entweicht.</h1>
+      <p class="lede">Agrammon berechnet, wo auf einem Betrieb Ammoniak verloren geht — und wie sich Änderungen in Struktur und Produktionstechnik auswirken.</p>
+      <div class="cta-row">
+        <a class="btn3 btn3-sky" href="design-modell.html">Modell starten →</a>
+        <a class="btn3 btn3-ghost" href="design-doc.html">Dokumentation</a>
+      </div>
+    </div>
+  </div>
+  <div class="photo">
+    <img src="img/pasture.jpg" alt="Kühe auf einer Schweizer Weide">
+    <div class="tagwrap">
+      <span class="surveytag"><span class="v">≈30 000&nbsp;t</span><span class="l">Stickstoff / Jahr<br>als Ammoniak verloren</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">model.agrammon.ch</span>
+      <h2>Drei Modellversionen, ein Algorithmus</h2>
+    </div>
+    <div class="vcards">
+      <div class="vcard">
+        <span class="idx">01 — Betrieb</span>
+        <h3>Einzelbetriebsmodell</h3>
+        <p>Berechnet die Ammoniakemissionen eines einzelnen Betriebs aus Parametern, die der Landwirtin ohne Aufwand bekannt sind.</p>
+        <a class="btn3 btn3-sky launch" href="design-modell.html">Starten →</a>
+      </div>
+      <div class="vcard">
+        <span class="idx">02 — Region</span>
+        <h3>Regionalmodell</h3>
+        <p>Aggregiert regionale Tierzahlen und Produktionstechnik — gleicher Algorithmus, regionaler Massstab.</p>
+        <a class="btn3 btn3-sky launch" href="design-modell.html">Starten →</a>
+      </div>
+      <div class="vcard">
+        <span class="idx">03 — Kanton</span>
+        <h3>Kantonale Anpassungen</h3>
+        <span class="tag">⚠ Eingefroren · offline 2028</span>
+        <p>Für den kantonalen Vollzug, etwa zur Beurteilung von Baugesuchen, mit zusätzlichen Minderungsmassnahmen.</p>
+        <a class="btn3 btn3-sky launch" href="design-modell.html">Starten →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section mist">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Flussmodell · % TAN</span>
+      <h2>Verfolgt den Stickstoff durch jede Stufe</h2>
+    </div>
+    <div class="studyrow">
+      <div class="ph">
+        <img src="img/housing.jpg" alt="Schweinestall">
+        <div class="pin" style="left:18px;bottom:18px"><span class="surveytag"><span class="v">% TAN</span><span class="l">löslicher Stickstoff</span></span></div>
+      </div>
+      <ol class="stagelist">
+        <li><span class="n">1</span><div><h4>Stall / Laufhof</h4><p>Verschmutzte Laufflächen und Harn-Kot-Kontakt bestimmen die Verluste.</p></div></li>
+        <li><span class="n">2</span><div><h4>Hofdüngerlager</h4><p>Emissionsfaktor pro m² Lageroberfläche; Abdeckung senkt den Verlust.</p></div></li>
+        <li><span class="n">3</span><div><h4>Ausbringung</h4><p>Schleppschlauch, Witterung und Tageszeit verändern die Rate deutlich.</p></div></li>
+        <li><span class="n">4</span><div><h4>Weide / Feld</h4><p>Reststickstoff sowie Boden- und Pflanzenprozesse je Hektar Fläche.</p></div></li>
+      </ol>
+    </div>
+    <p class="lead" style="margin-top:30px">Alle Variablen, Referenzen und Formeln sind in der <a href="design-doc.html" style="color:var(--sky-deep)">Technischen Modellbeschreibung</a> und vollständig auf <a href="#" style="color:var(--sky-deep)">GitHub</a> dokumentiert.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="dot"></span>Agrammon</a>
+    <div>© 2026 — HAFL, Oetiker+Partner AG · mit Unterstützung des BAFU</div>
+  </div>
+</footer>
+
+<div class="demobadge">DESIGNVORSCHLAG 2 · /theme3/</div>
+</body>
+</html>
