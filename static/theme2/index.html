@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agrammon — Designvorschlag (Start)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="design-proposal.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="dot"></span>Agrammon</a>
+    <nav class="main">
+      <a href="design-doc.html">Dokumentation</a><a href="design-modell.html">Modell</a>
+      <a href="design-downloads.html">Downloads</a><a href="design-contact.html">Kontakt</a><a href="design-about.html">Über uns</a>
+    </nav>
+    <div class="lang"><b>DE</b><span>/</span>EN<span>/</span>FR</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <p class="eyebrow" style="color:var(--leaf)">Ammoniak-Emissionsmodell · Schweizer Landwirtschaft</p>
+        <h1>Stickstoff fliesst.<br><em>Ammoniak entweicht.</em></h1>
+        <p class="lede">Agrammon verfolgt den Stickstoff durch jede Stufe des Betriebs — und berechnet, wo er als Ammoniak in die Luft verloren geht.</p>
+        <div class="cta-row">
+          <a class="btn btn-leaf" href="design-modell.html">Modell starten →</a>
+          <a class="btn btn-ghost" href="design-doc.html">Dokumentation</a>
+        </div>
+      </div>
+      <div>
+        <div class="stat">
+          <div class="num">≈30 000<small> t&nbsp;N / Jahr</small></div>
+          <div class="cap">gehen der Schweizer Landwirtschaft jährlich als Ammoniak verloren — fast ein Drittel des Stickstoffs in Hofdüngern.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Signature: nitrogen-flux band (flow thins at each NH₃ escape) ── -->
+    <div class="flux">
+      <div class="lbl">
+        <span class="eyebrow">Flussmodell — N-Eintrag → Verluste als NH₃</span>
+        <span class="eyebrow">TAN-basiert</span>
+      </div>
+      <svg viewBox="0 0 1100 200" role="img" aria-label="Stickstoff-Flussdiagramm: der Stickstofffluss wird an jeder Stufe dünner, weil Ammoniak in die Atmosphäre entweicht">
+        <line x1="40" y1="30" x2="1060" y2="30" stroke="#A9C3CE" stroke-width="1" stroke-dasharray="2 5"/>
+        <text x="40" y="22" fill="#A9C3CE" font-family="IBM Plex Mono" font-size="12" letter-spacing="1.5">ATMOSPHÄRE</text>
+
+        <!-- tapering flow ribbon: half-height steps 17→13→10→7→4.5 across the four stages -->
+        <polygon fill="#8FCB3A" opacity=".92" points="
+          40,133 220,133 220,137 450,137 450,140 680,140 680,143 900,143 900,145.5 1060,145.5
+          1060,154.5 900,154.5 900,157 680,157 680,160 450,160 450,163 220,163 220,167 40,167"/>
+        <!-- flowing dashes along the centre line -->
+        <line class="flow-dash" x1="40" y1="150" x2="1060" y2="150" stroke="#143024" stroke-width="6" stroke-linecap="round"/>
+
+        <g font-family="IBM Plex Mono" font-size="13" fill="#F7F5EE">
+          <g>
+            <line x1="220" y1="132" x2="220" y2="50" stroke="#A9C3CE" stroke-width="2"/>
+            <polygon points="220,42 215,54 225,54" fill="#A9C3CE"/>
+            <text x="232" y="70" fill="#A9C3CE">NH₃</text>
+            <circle cx="220" cy="150" r="8" fill="#143024" stroke="#8FCB3A" stroke-width="2"/>
+            <text x="220" y="186" text-anchor="middle" fill="rgba(247,245,238,.82)">Stall / Laufhof</text>
+          </g>
+          <g>
+            <line x1="450" y1="135" x2="450" y2="64" stroke="#A9C3CE" stroke-width="2"/>
+            <polygon points="450,56 445,68 455,68" fill="#A9C3CE"/>
+            <text x="462" y="84" fill="#A9C3CE">NH₃</text>
+            <circle cx="450" cy="150" r="8" fill="#143024" stroke="#8FCB3A" stroke-width="2"/>
+            <text x="450" y="186" text-anchor="middle" fill="rgba(247,245,238,.82)">Hofdüngerlager</text>
+          </g>
+          <g>
+            <line x1="680" y1="138" x2="680" y2="48" stroke="#A9C3CE" stroke-width="2"/>
+            <polygon points="680,40 675,52 685,52" fill="#A9C3CE"/>
+            <text x="692" y="68" fill="#A9C3CE">NH₃</text>
+            <circle cx="680" cy="150" r="8" fill="#143024" stroke="#8FCB3A" stroke-width="2"/>
+            <text x="680" y="186" text-anchor="middle" fill="rgba(247,245,238,.82)">Ausbringung</text>
+          </g>
+          <g>
+            <line x1="900" y1="142" x2="900" y2="78" stroke="#A9C3CE" stroke-width="2"/>
+            <polygon points="900,70 895,82 905,82" fill="#A9C3CE"/>
+            <text x="912" y="98" fill="#A9C3CE">NH₃</text>
+            <circle cx="900" cy="150" r="8" fill="#143024" stroke="#8FCB3A" stroke-width="2"/>
+            <text x="900" y="186" text-anchor="middle" fill="rgba(247,245,238,.82)">Weide / Feld</text>
+          </g>
+          <text x="40" y="186" fill="rgba(247,245,238,.55)">N-Eintrag</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Drei Modellversionen</h2>
+      <span class="eyebrow">model.agrammon.ch</span>
+    </div>
+    <div class="variants">
+      <div class="variant">
+        <span class="idx">01 — Betrieb</span>
+        <h3>Einzelbetriebsmodell</h3>
+        <p>Berechnet die Ammoniakemissionen eines einzelnen Betriebs aus Parametern, die der Landwirtin ohne Aufwand bekannt sind.</p>
+        <a class="go" href="design-modell.html">Starten →</a>
+      </div>
+      <div class="variant">
+        <span class="idx">02 — Region</span>
+        <h3>Regionalmodell</h3>
+        <p>Aggregiert regionale Tierzahlen und Produktionstechnik — gleicher Algorithmus, regionaler Massstab.</p>
+        <a class="go" href="design-modell.html">Starten →</a>
+      </div>
+      <div class="variant">
+        <span class="idx">03 — Kanton</span>
+        <h3>Kantonale Anpassungen</h3>
+        <span class="tag">⚠ Eingefroren · offline 2028</span>
+        <p>Für den kantonalen Vollzug, etwa zur Beurteilung von Baugesuchen, mit zusätzlichen Minderungsmassnahmen.</p>
+        <a class="go" href="design-modell.html">Starten →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section how">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Wie Agrammon rechnet</h2>
+      <span class="eyebrow">Emissionsfaktoren · % TAN</span>
+    </div>
+    <p style="max-width:60ch;color:#46524a">Verluste werden als Anteil des löslichen Stickstoffs (TAN) berechnet. Produktionstechnik — Fütterung, Stallsystem, Abdeckung, Ausbringverfahren — wirkt als Korrekturfaktor auf jeden Emissionsfaktor.</p>
+    <div class="stages">
+      <div class="stage"><div class="st-n">STUFE 01</div><h4>Stall / Laufhof</h4><p>Verschmutzte Laufflächen und Harn-Kot-Kontakt bestimmen die Verluste.</p><span class="ef">f = % TAN</span></div>
+      <div class="stage"><div class="st-n">STUFE 02</div><h4>Hofdüngerlager</h4><p>Emissionsfaktor pro m² Lageroberfläche; Abdeckung senkt den Verlust.</p><span class="ef">f = NH₃ / m²</span></div>
+      <div class="stage"><div class="st-n">STUFE 03</div><h4>Ausbringung</h4><p>Schleppschlauch, Witterung und Tageszeit verändern die Rate deutlich.</p><span class="ef">f × k_Technik</span></div>
+      <div class="stage"><div class="st-n">STUFE 04</div><h4>Weide / Feld</h4><p>Reststickstoff sowie Boden- und Pflanzenprozesse je ha Fläche.</p><span class="ef">kg N / ha</span></div>
+    </div>
+    <p class="note">Alle Variablen, Referenzen und Formeln sind in der <a href="design-doc.html">Technischen Modellbeschreibung</a> und vollständig auf <a href="#">GitHub</a> dokumentiert.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="dot"></span>Agrammon</a>
+    <div>© 2026 — HAFL, Oetiker+Partner AG · mit Unterstützung des BAFU</div>
+  </div>
+</footer>
+
+<div class="demobadge">DESIGNVORSCHLAG · /theme2/ · nicht die produktive Seite</div>
+</body>
+</html>

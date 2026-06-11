@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agrammon — Designvorschlag (Dokumentation)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="design-proposal.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="dot"></span>Agrammon</a>
+    <nav class="main">
+      <a href="design-doc.html" class="active">Dokumentation</a><a href="design-modell.html">Modell</a>
+      <a href="design-downloads.html">Downloads</a><a href="design-contact.html">Kontakt</a><a href="design-about.html">Über uns</a>
+    </nav>
+    <div class="lang"><b>DE</b><span>/</span>EN<span>/</span>FR</div>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <p class="eyebrow">Dokumentation zum Modell</p>
+    <h1>Verwendete Grundlagen</h1>
+  </div>
+</section>
+<div class="crumb"><div class="wrap"><a href="design-doc.html">Dokumentation</a> / <span>Verwendete Grundlagen</span></div></div>
+
+<div class="wrap">
+  <div class="doc">
+    <!-- sidebar -->
+    <aside class="doc-nav">
+      <p class="grp">Dokumentation</p>
+      <ul>
+        <li><a href="design-doc.html" class="active">Verwendete Grundlagen</a></li>
+        <li><a href="design-doc.html">Modellparameter</a></li>
+        <li><a href="design-doc.html" class="sub">Emissionsfaktoren</a></li>
+        <li><a href="design-doc.html" class="sub">Korrekturfaktoren</a></li>
+        <li><a href="design-doc.html">Technische Modellbeschreibung</a></li>
+      </ul>
+    </aside>
+
+    <!-- content -->
+    <article class="prose">
+      <p>Die verwendeten Berechnungsgrundlagen wie Emissionsfaktoren und Annahmen zur Wirkung verschiedener Einflussgrössen beruhen — soweit vorhanden — auf wissenschaftlichen Versuchen in der Schweiz. Wo solche fehlten, wurden Daten aus dem Ausland beigezogen und so weit möglich auf die Bedingungen in der Schweiz angepasst.</p>
+
+      <p>Die Berechnungsgrundlagen wurden mit den von der UNECE (United Nations Economic Commission for Europe) vorgeschlagenen Werten abgestimmt. Falls in der Fachliteratur keine detaillierten Angaben verfügbar waren, kamen Expertenschätzungen zur Anwendung.</p>
+
+      <div class="todo">
+        <b>⚠ TODO — Kundenrückfrage</b>
+        Auf der Live-Website ist «UNECE» mit einem PDF von 2007 verlinkt, das aktuell HTTP&nbsp;403 zurückgibt. Korrektes Ziel vor dem Setzen des Links bestätigen.
+      </div>
+
+      <p>Das Modell wird laufend weiterentwickelt und dem Stand des Wissens angepasst. Voraussetzung dazu sind aktuelle Forschungsergebnisse — etwa aus den geplanten Versuchen im Emissionsversuchsstall von Agroscope in Tänikon, in denen typische Schweizer Rindviehhaltungssysteme mit optimierten Systemen verglichen werden.</p>
+
+      <figure>
+        <img src="img/flux.jpg" alt="Schematische Darstellung des Agrammon-Flussmodells">
+        <figcaption>Abb. 1 — Schematische Darstellung des Flussmodells (N-Eintrag bis Verluste als NH₃).</figcaption>
+      </figure>
+
+      <div class="crosslink">
+        Weiter: <a href="design-doc.html">Modellparameter →</a><a href="design-doc.html">Technische Modellbeschreibung →</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="dot"></span>Agrammon</a>
+    <div>© 2026 — HAFL, Oetiker+Partner AG · mit Unterstützung des BAFU</div>
+  </div>
+</footer>
+
+<div class="demobadge">DESIGNVORSCHLAG · /theme2/ · nicht die produktive Seite</div>
+</body>
+</html>
