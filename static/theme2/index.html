@@ -27,70 +27,23 @@
     <div class="grid">
       <div>
         <p class="eyebrow" style="color:var(--leaf)">Ammoniak-Emissionsmodell · Schweizer Landwirtschaft</p>
-        <h1>Stickstoff fliesst.<br><em>Ammoniak entweicht.</em></h1>
-        <p class="lede">Agrammon verfolgt den Stickstoff durch jede Stufe des Betriebs — und berechnet, wo er als Ammoniak in die Luft verloren geht.</p>
+        <h1>Willkommen bei Agrammon</h1>
+        <div class="hero-copy">
+          <p>Ammoniakverflüchtigung ist für die Schweizer Landwirtschaft eine bedeutende Verlustquelle für Stickstoff (N). Pro Jahr gehen so mehr als 30'000 Tonnen Stickstoff verloren. Dies entspricht fast einem Drittel des N-Anfalles in Hofdüngern und hat für die Landwirte einen finanziellen Verlust und eine Verminderung der Produktivität zur Folge. Gleichzeitig belasten Ammoniakemissionen die Umwelt, insbesondere naturnahe Ökosysteme.</p>
+          <p>Das Simulationsmodell Agrammon erlaubt die Berechnung der Ammoniakemissionen und zeigt auf, wie sich auf einem Betrieb Änderungen in Struktur und Produktionstechnik auf die Emissionen auswirken.</p>
+          <p>Das Modell wurde von der Hochschule für Agrar-, Forst- und Lebensmittelwissenschaften (HAFL) und von den Firmen Bonjour Engineering GmbH sowie Oetiker+Partner AG mit Unterstützung des Bundesamts für Umwelt (BAFU) entwickelt.</p>
+        </div>
         <div class="cta-row">
           <a class="btn btn-leaf" href="design-modell.html">Modell starten →</a>
           <a class="btn btn-ghost" href="design-doc.html">Dokumentation</a>
         </div>
       </div>
       <div>
-        <div class="stat">
-          <div class="num">≈30 000<small> t&nbsp;N / Jahr</small></div>
-          <div class="cap">gehen der Schweizer Landwirtschaft jährlich als Ammoniak verloren — fast ein Drittel des Stickstoffs in Hofdüngern.</div>
-        </div>
+        <figure class="hero-figure">
+          <img src="img/flux.jpg" alt="Schematische Darstellung des Agrammon-Flussmodells">
+          <figcaption>Schematische Darstellung des Flussmodells</figcaption>
+        </figure>
       </div>
-    </div>
-
-    <!-- ── Signature: nitrogen-flux band (flow thins at each NH₃ escape) ── -->
-    <div class="flux">
-      <div class="lbl">
-        <span class="eyebrow">Flussmodell — N-Eintrag → Verluste als NH₃</span>
-        <span class="eyebrow">TAN-basiert</span>
-      </div>
-      <svg viewBox="0 0 1100 200" role="img" aria-label="Stickstoff-Flussdiagramm: der Stickstofffluss wird an jeder Stufe dünner, weil Ammoniak in die Atmosphäre entweicht">
-        <line x1="40" y1="30" x2="1060" y2="30" stroke="#A9C3CE" stroke-width="1" stroke-dasharray="2 5"/>
-        <text x="40" y="22" fill="#A9C3CE" font-family="IBM Plex Mono" font-size="12" letter-spacing="1.5">ATMOSPHÄRE</text>
-
-        <!-- tapering flow ribbon: half-height steps 17→13→10→7→4.5 across the four stages -->
-        <polygon fill="#8FCB3A" opacity=".92" points="
-          40,133 220,133 220,137 450,137 450,140 680,140 680,143 900,143 900,145.5 1060,145.5
-          1060,154.5 900,154.5 900,157 680,157 680,160 450,160 450,163 220,163 220,167 40,167"/>
-        <!-- flowing dashes along the centre line -->
-        <line class="flow-dash" x1="40" y1="150" x2="1060" y2="150" stroke="#143024" stroke-width="6" stroke-linecap="round"/>
-
-        <g font-family="IBM Plex Mono" font-size="13" fill="#F7F5EE">
-          <g>
-            <line x1="220" y1="132" x2="220" y2="50" stroke="#A9C3CE" stroke-width="2"/>
-            <polygon points="220,42 215,54 225,54" fill="#A9C3CE"/>
-            <text x="232" y="70" fill="#A9C3CE">NH₃</text>
-            <circle cx="220" cy="150" r="8" fill="#143024" stroke="#8FCB3A" stroke-width="2"/>
-            <text x="220" y="186" text-anchor="middle" fill="rgba(247,245,238,.82)">Stall / Laufhof</text>
-          </g>
-          <g>
-            <line x1="450" y1="135" x2="450" y2="64" stroke="#A9C3CE" stroke-width="2"/>
-            <polygon points="450,56 445,68 455,68" fill="#A9C3CE"/>
-            <text x="462" y="84" fill="#A9C3CE">NH₃</text>
-            <circle cx="450" cy="150" r="8" fill="#143024" stroke="#8FCB3A" stroke-width="2"/>
-            <text x="450" y="186" text-anchor="middle" fill="rgba(247,245,238,.82)">Hofdüngerlager</text>
-          </g>
-          <g>
-            <line x1="680" y1="138" x2="680" y2="48" stroke="#A9C3CE" stroke-width="2"/>
-            <polygon points="680,40 675,52 685,52" fill="#A9C3CE"/>
-            <text x="692" y="68" fill="#A9C3CE">NH₃</text>
-            <circle cx="680" cy="150" r="8" fill="#143024" stroke="#8FCB3A" stroke-width="2"/>
-            <text x="680" y="186" text-anchor="middle" fill="rgba(247,245,238,.82)">Ausbringung</text>
-          </g>
-          <g>
-            <line x1="900" y1="142" x2="900" y2="78" stroke="#A9C3CE" stroke-width="2"/>
-            <polygon points="900,70 895,82 905,82" fill="#A9C3CE"/>
-            <text x="912" y="98" fill="#A9C3CE">NH₃</text>
-            <circle cx="900" cy="150" r="8" fill="#143024" stroke="#8FCB3A" stroke-width="2"/>
-            <text x="900" y="186" text-anchor="middle" fill="rgba(247,245,238,.82)">Weide / Feld</text>
-          </g>
-          <text x="40" y="186" fill="rgba(247,245,238,.55)">N-Eintrag</text>
-        </g>
-      </svg>
     </div>
   </div>
 </section>

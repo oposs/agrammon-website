@@ -32,12 +32,17 @@ nav.main a:hover,nav.main a.active{color:#fff;border-color:var(--leaf)}
 
 /* ── Hero (pine instrument panel) ── */
 .hero{background:var(--pine);color:var(--paper);position:relative;overflow:hidden;
-      padding:62px 0 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:end}
-.hero h1{font-family:var(--display);font-weight:600;font-size:clamp(2.5rem,5.2vw,4.1rem);
-         line-height:1.02;letter-spacing:-.02em;margin:.5rem 0 0}
+      padding:62px 0 72px;border-bottom:1px solid rgba(255,255,255,.08)}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+.hero h1{font-family:var(--display);font-weight:600;font-size:clamp(2.1rem,4vw,3rem);
+         line-height:1.05;letter-spacing:-.02em;margin:.5rem 0 0}
 .hero h1 em{font-style:normal;color:var(--leaf)}
 .hero .lede{color:rgba(247,245,238,.78);font-size:1.12rem;max-width:34ch;margin:22px 0 30px}
+.hero-copy{margin:18px 0 26px}
+.hero-copy p{color:rgba(247,245,238,.82);font-size:1.02rem;line-height:1.6;margin:0 0 .9rem;max-width:50ch}
+.hero-figure{margin:0;background:#fff;border-radius:6px;padding:18px;box-shadow:0 18px 50px rgba(0,0,0,.22)}
+.hero-figure img{display:block;max-width:100%;max-height:430px;width:auto;height:auto;margin:0 auto;border-radius:2px}
+.hero-figure figcaption{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--muted);margin-top:10px;text-align:center}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .btn{font-family:var(--display);font-weight:600;font-size:.98rem;text-decoration:none;
      padding:13px 22px;border-radius:2px;display:inline-flex;align-items:center;gap:9px;transition:.15s;cursor:pointer;border:none}
