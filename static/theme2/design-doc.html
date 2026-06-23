@@ -23,59 +23,48 @@
 </header>
 
 <section class="pagehead">
-  <div class="wrap">
-    <p class="eyebrow">Dokumentation zum Modell</p>
-    <h1>Verwendete Grundlagen</h1>
-  </div>
+  <div class="wrap"><p class="eyebrow">Dokumentation zum Modell</p><h1>Dokumentation</h1></div>
 </section>
-<div class="crumb"><div class="wrap"><a href="design-doc.html">Dokumentation</a> / <span>Verwendete Grundlagen</span></div></div>
+<div class="crumb"><div class="wrap"><span>Dokumentation</span></div></div>
 
 <div class="wrap">
   <div class="doc">
-    <!-- sidebar -->
     <aside class="doc-nav">
       <p class="grp">Dokumentation</p>
       <ul>
-        <li><a href="design-doc.html" class="active">Verwendete Grundlagen</a></li>
-        <li><a href="design-doc.html">Modellparameter</a></li>
-        <li><a href="design-doc.html" class="sub">Emissionsfaktoren</a></li>
-        <li><a href="design-doc.html" class="sub">Korrekturfaktoren</a></li>
-        <li><a href="design-doc.html">Technische Modellbeschreibung</a></li>
+        <li><a href="design-doc.html" class="active">Übersicht</a></li>
+        <li><a href="design-doc-grundlagen.html">Grundlagen</a></li>
+        <li><a href="design-doc-modellparameter.html">Modellparameter</a></li>
+        <li><a href="design-doc-emissionsfaktoren.html" class="sub">Emissionsfaktoren</a></li>
+        <li><a href="design-doc-korrekturfaktoren.html" class="sub">Korrekturfaktoren</a></li>
+        <li><a href="design-doc-technische.html">Technische Modellbeschreibung</a></li>
       </ul>
     </aside>
 
-    <!-- content -->
-    <article class="prose">
-      <p>Die verwendeten Berechnungsgrundlagen wie Emissionsfaktoren und Annahmen zur Wirkung verschiedener Einflussgrössen beruhen — soweit vorhanden — auf wissenschaftlichen Versuchen in der Schweiz. Wo solche fehlten, wurden Daten aus dem Ausland beigezogen und so weit möglich auf die Bedingungen in der Schweiz angepasst.</p>
+    <div>
+      <p style="max-width:64ch;color:#46524a;margin:0 0 18px">Das Modell Agrammon berechnet die Ammoniakverluste auf der Basis des N-Flusses (Flussmodell). Für die Stufen Stall/Laufhof, Hofdüngerlager, Hofdüngerausbringung, Weide und übrige Quellen werden die Verluste mittels Emissionsfaktoren als Anteil des durchfliessenden löslichen Stickstoffs berechnet. Für die Güllelagerung wird ein Emissionsfaktor pro m² Oberfläche verwendet. Wichtige produktionstechnische Einflussgrössen wie Fütterung, Stallsystem, Abdeckung der Güllelager oder emissionsmindernde Ausbringungssysteme werden als Korrekturfaktoren berücksichtigt.</p>
 
-      <p>Die Berechnungsgrundlagen wurden mit den von der UNECE (United Nations Economic Commission for Europe) vorgeschlagenen Werten abgestimmt. Falls in der Fachliteratur keine detaillierten Angaben verfügbar waren, kamen Expertenschätzungen zur Anwendung.</p>
-
-      <div class="todo">
-        <b>⚠ TODO — Kundenrückfrage</b>
-        Auf der Live-Website ist «UNECE» mit einem PDF von 2007 verlinkt, das aktuell HTTP&nbsp;403 zurückgibt. Korrektes Ziel vor dem Setzen des Links bestätigen.
-      </div>
-
-      <p>Das Modell wird laufend weiterentwickelt und dem Stand des Wissens angepasst. Voraussetzung dazu sind aktuelle Forschungsergebnisse — etwa aus den geplanten Versuchen im Emissionsversuchsstall von Agroscope in Tänikon, in denen typische Schweizer Rindviehhaltungssysteme mit optimierten Systemen verglichen werden.</p>
-
-      <figure>
-        <img src="img/flux.jpg" alt="Schematische Darstellung des Agrammon-Flussmodells">
-        <figcaption>Abb. 1 — Schematische Darstellung des Flussmodells (N-Eintrag bis Verluste als NH₃).</figcaption>
+      <figure style="margin:0 0 26px">
+        <img src="img/flux.jpg" alt="Schematische Darstellung des Agrammon-Flussmodells" style="width:100%;height:auto;border:1px solid var(--line)">
+        <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:8px">Schematische Darstellung des Flussmodells (N-Eintrag bis Verluste als NH₃).</figcaption>
       </figure>
 
-      <div class="crosslink">
-        Weiter: <a href="design-doc.html">Modellparameter →</a><a href="design-doc.html">Technische Modellbeschreibung →</a>
+      <div class="dlnav">
+        <a href="design-doc-grundlagen.html"><span class="k">01</span><h3>Grundlagen <span class="arr">→</span></h3><p>Herkunft der Emissionsfaktoren und Annahmen, abgestimmt mit der UNECE.</p></a>
+        <a href="design-doc-modellparameter.html"><span class="k">02</span><h3>Modellparameter <span class="arr">→</span></h3><p>Eingabeparameter und technische Parameter des Modells.</p></a>
+        <a href="design-doc-emissionsfaktoren.html"><span class="k">03</span><h3>Emissionsfaktoren <span class="arr">→</span></h3><p>Anteil des Stickstoffs, der als Ammoniak emittiert wird (% TAN).</p></a>
+        <a href="design-doc-korrekturfaktoren.html"><span class="k">04</span><h3>Korrekturfaktoren <span class="arr">→</span></h3><p>Produktionstechnische Verfahren, welche die Emissionen verändern.</p></a>
+        <a href="design-doc-technische.html"><span class="k">05</span><h3>Technische Modellbeschreibung <span class="arr">→</span></h3><p>Dokumente, technische Parameter und der Quellcode auf GitHub.</p></a>
       </div>
-    </article>
+    </div>
   </div>
 </div>
 
 <footer>
   <div class="wrap">
-    <a class="brand" href="index.html"><span class="dot"></span>Agrammon</a>
     <div>© 2026 — HAFL, Oetiker+Partner AG · mit Unterstützung des BAFU</div>
   </div>
 </footer>
 
-<div class="demobadge">DESIGNVORSCHLAG · /theme2/ · nicht die produktive Seite</div>
 </body>
 </html>
