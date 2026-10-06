@@ -2,6 +2,12 @@
 title: Agrammon Model
 weight: 2
 ---
+<!--
+  One line per document:
+  - Title of the report. Extra info (2024-06-15) — [Download](/assets/Documents/file-name.pdf)
+  Put the PDF into static/assets/Documents/. "## Heading" starts a new group.
+  A line without a PDF link is shown as a row without button.
+-->
 
 ## Background Information
 

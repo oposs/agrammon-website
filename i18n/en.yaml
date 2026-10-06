@@ -69,3 +69,11 @@
 
 - id: overview
   translation: Overview
+
+- id: pdf_download
+  translation: "PDF ↓"
+
+- id: documents_count
+  translation:
+    one: "{{ .Count }} document"
+    other: "{{ .Count }} documents"

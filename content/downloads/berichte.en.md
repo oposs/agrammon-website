@@ -2,6 +2,12 @@
 title: Reports
 weight: 1
 ---
+<!--
+  One line per document:
+  - Title of the report. Extra info (2024-06-15) — [Download](/assets/Documents/file-name.pdf)
+  Put the PDF into static/assets/Documents/. "## Heading" starts a new group.
+  A line without a PDF link is shown as a row without button.
+-->
 
 - Ammonia emissions from agriculture in Switzerland for 1990 to 2020. Report in German with summary in English and French (2022-06-15) — [Download](/assets/Documents/Bericht_Agrammon_1990-2020_-20220331.pdf)
 - Ammonia emissions from agriculture in Switzerland for 1990 to 2015. Report in German with summary in English and French (2018-10-10) — [Download](/assets/Documents/02364.pdf)

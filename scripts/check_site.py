@@ -339,7 +339,7 @@ def chrome_is_theme2_only(ctx):
 # ── pagehead (Task 4) ───────────────────────────────────────────────────
 # Top-level paths whose layouts are ported in later tasks; each task
 # removes its entry when it switches that layout to the page header.
-PAGEHEAD_PENDING = {"downloads", "modell", "kontakt", "ueber-uns"}
+PAGEHEAD_PENDING = {"modell", "kontakt", "ueber-uns"}
 
 
 @check("pagehead")
@@ -423,6 +423,134 @@ def docs_sidebar_and_prose(ctx):
             errs.append(f"{url}: no .prose body")
         if uikit_markup(doc.find("main")):
             errs.append(f"{url}: UIkit markup in <main>")
+    return errs
+
+
+# ── downloads (Task 6) ──────────────────────────────────────────────────
+# One bullet per document: "- Text — [label](file.pdf)" or "- [Title](file.pdf)"
+STANDARD_ROW = re.compile(
+    r"^- (?:[^\[\n]+?\s+[—–]\s+\[[^\]]+\]\([^)\s]+\.pdf\)|\[[^\]]+\]\([^)\s]+\.pdf\))\s*$")
+DL_PAGES = ("berichte", "modell-agrammon", "weitere-informationen", "blsmodelr")
+
+
+def expected_rows(md_path):
+    lines = md_path.read_text(encoding="utf-8").splitlines()
+    return sum(1 for line in lines if STANDARD_ROW.match(line))
+
+
+def front_matter_weight(md_path):
+    m = re.search(r"^weight:\s*(\d+)", md_path.read_text(encoding="utf-8"), re.M)
+    return int(m.group(1)) if m else 0
+
+
+def row_errors(url, scope):
+    errs = []
+    for row in scope.find_all("li", "dl-row"):
+        buttons = row.find_all("a", "dl")
+        text = row.find("span", "t")
+        if len(buttons) != 1 or buttons[0].text() != "PDF ↓":
+            errs.append(f"{url}: row without one 'PDF ↓' button: {row.text()[:60]}")
+        if text is None or not text.text() or text.text().endswith(("—", "–")):
+            errs.append(f"{url}: row text missing or ends in a dash: {row.text()[:60]}")
+    return errs
+
+
+@check("downloads")
+def download_rows_match_source(ctx):
+    errs = []
+    for lang in LANGS:
+        for name in DL_PAGES:
+            url = f"/{lang}/downloads/{name}/"
+            doc = parse(page_file(ctx.root, url))
+            main = doc.find("main")
+            got = len(main.find_all("li", "dl-row"))
+            want = expected_rows(ROOT / "content/downloads" / f"{name}.{lang}.md")
+            if got != want:
+                errs.append(f"{url}: {got} download rows, source has {want}")
+            errs += row_errors(url, main)
+            errs += sidebar_errors(url, doc, f"/{lang}/downloads/", entries=5, subs=0)
+            if uikit_markup(main):
+                errs.append(f"{url}: UIkit markup in <main>")
+    return errs
+
+
+@check("downloads")
+def lists_without_pdfs_untouched(ctx):
+    errs = []
+    for lang in LANGS:
+        main = parse(page_file(ctx.root, f"/{lang}/downloads/blsmodelr/")).find("main")
+        if main.find("ul", "dl-list"):
+            errs.append(f"/{lang}/downloads/blsmodelr/: feature list turned into download list")
+        if not main.find_all("li"):
+            errs.append(f"/{lang}/downloads/blsmodelr/: bullet lists vanished")
+    return errs
+
+
+@check("downloads")
+def placeholder_without_pdf_stays_a_row(ctx):
+    # "Changes 6.5.2 -> 7.0.0" has no PDF yet (OPEN-QUESTIONS.md #3).
+    errs = []
+    for lang in LANGS:
+        main = parse(page_file(ctx.root, f"/{lang}/downloads/modell-agrammon/")).find("main")
+        items = [li for ul in main.find_all("ul", "dl-list") for li in ul.find_all("li")]
+        hits = [li for li in items if "7.0.0" in li.text()]
+        if len(hits) != 1:
+            errs.append(f"{lang}: 7.0.0 entry found {len(hits)} times in download lists")
+        elif hits[0].find("a", "dl"):
+            errs.append(f"{lang}: 7.0.0 entry unexpectedly has a PDF button")
+    return errs
+
+
+@check("downloads")
+def every_pdf_linked_and_resolving(ctx):
+    errs = []
+    on_disk = {"/" + p.relative_to(ROOT / "static").as_posix()
+               for p in (ROOT / "static/assets").rglob("*.pdf")}
+    for site, prefix in ((ctx.root, "/"), (ctx.sub, SUBPATH)):
+        linked = set()
+        for f in all_html(site):
+            for a in parse(f).find_all("a"):
+                href = a.attrs.get("href", "")
+                if not href.lower().endswith(".pdf") or href.startswith(("http:", "https:")):
+                    continue
+                if not href.startswith(prefix + "assets/"):
+                    errs.append(f"{site.name}: {href} not under {prefix}assets/")
+                elif not page_file(site, href).exists():
+                    errs.append(f"{site.name}: {href} does not exist")
+                linked.add("/" + unquote(href)[len(prefix):])
+        missing = sorted(on_disk - linked)
+        if missing:
+            errs.append(f"{site.name}: {len(missing)} PDFs never linked, e.g. {missing[:3]}")
+    return errs
+
+
+@check("downloads")
+def overview_tiles(ctx):
+    errs = []
+    for lang in LANGS:
+        url = f"/{lang}/downloads/"
+        doc = parse(page_file(ctx.root, url))
+        tiles = doc.find("div", "dlnav")
+        if tiles is None:
+            errs.append(f"{url}: no .dlnav")
+            continue
+        order = sorted(DL_PAGES, key=lambda n: front_matter_weight(
+            ROOT / "content/downloads" / f"{n}.{lang}.md"))
+        want = [f"/{lang}/downloads/{n}/" for n in order]
+        got = [a.attrs.get("href") for a in tiles.find_all("a")]
+        if got != want:
+            errs.append(f"{url}: tiles {got} != {want}")
+            continue
+        for a in tiles.find_all("a"):
+            target = parse(page_file(ctx.root, a.attrs["href"])).find("main")
+            # rows carry class "dl" after conversion, inline PDF links keep "pdf"
+            n_pdf = len(target.find_all("a", "pdf")) + len(target.find_all("a", "dl"))
+            p = a.find("p")
+            if n_pdf and (p is None or str(n_pdf) not in p.text()):
+                errs.append(f"{url}: tile {a.attrs['href']} lacks count {n_pdf}")
+            if not n_pdf and p is not None:
+                errs.append(f"{url}: tile {a.attrs['href']} shows a count but has no PDFs")
+        errs += sidebar_errors(url, doc, url, entries=5, subs=0)
     return errs
 
 
