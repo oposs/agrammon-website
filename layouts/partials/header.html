@@ -78,7 +78,7 @@
                     <li>
                         <div class="ag-nav-controls">
                             <div class="ag-lang-switcher">
-                                {{ range hugo.Sites }}
+                                {{ range $i, $s := hugo.Sites }}
                                     {{ $thisLang := .Language.Lang }}
                                     {{ $langURL := print "/" $thisLang "/" }}
                                     {{ range $currentPage.AllTranslations }}
@@ -86,7 +86,7 @@
                                             {{ $langURL = .RelPermalink }}
                                         {{ end }}
                                     {{ end }}
-                                    {{ if ne $thisLang $.Site.Language.Lang }}<span>|</span>{{ end }}
+                                    {{ if gt $i 0 }}<span>|</span>{{ end }}
                                     <a href="{{ $langURL }}"
                                        class="{{ if eq $thisLang $.Site.Language.Lang }}ag-lang-active{{ end }}">{{ .Language.Params.languageLabel }}</a>
                                 {{ end }}
