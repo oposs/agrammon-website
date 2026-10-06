@@ -77,3 +77,6 @@
   translation:
     one: "{{ .Count }} Dokument"
     other: "{{ .Count }} Dokumente"
+
+- id: flux_caption
+  translation: "Schematische Darstellung (Flussmodell)"

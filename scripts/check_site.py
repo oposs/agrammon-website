@@ -622,6 +622,51 @@ def modell_page(ctx):
     return errs
 
 
+# ── home (Task 9) ───────────────────────────────────────────────────────
+FLUX_SUFFIX = {"de": "d", "en": "e", "fr": "f"}
+
+
+def first_paragraph(md_path):
+    body = md_path.read_text(encoding="utf-8").split("---", 2)[2]
+    return next(line for line in body.splitlines() if line.strip()).strip()
+
+
+def normalize(text):
+    return text.replace("’", "'").replace(" ", " ").replace("\xa0", " ")
+
+
+@check("home")
+def home_page(ctx):
+    errs = []
+    for lang in LANGS:
+        url = f"/{lang}/"
+        main = parse(page_file(ctx.root, url)).find("main")
+        hero = main.find("section", "hero")
+        if hero is None:
+            errs.append(f"{url}: no hero")
+            continue
+        h1 = hero.find("h1")
+        if h1 is None or h1.text() != "Agrammon":
+            errs.append(f"{url}: hero h1 {h1.text() if h1 else None!r}")
+        copy = hero.find("div", "hero-copy")
+        start = normalize(first_paragraph(ROOT / f"content/_index.{lang}.md"))[:40]
+        if copy is None or start not in normalize(copy.text()):
+            errs.append(f"{url}: hero text does not start with {start!r}")
+        img = hero.find("img")
+        src = img.attrs.get("src", "") if img else ""
+        if f"Stoffflussmodell-Agrammon-2015{FLUX_SUFFIX[lang]}" not in src:
+            errs.append(f"{url}: flux image {src!r}")
+        elif not page_file(ctx.root, src).exists() or not img.attrs.get("alt"):
+            errs.append(f"{url}: flux image missing on disk or without alt")
+        ctas = [a.attrs.get("href") for a in hero.find_all("a", "btn")]
+        if ctas != [f"/{lang}/modell/", f"/{lang}/dokumentation/"]:
+            errs.append(f"{url}: hero buttons {ctas}")
+        errs += model_cards_errors(url, lang, main)
+        if uikit_markup(main):
+            errs.append(f"{url}: UIkit markup in <main>")
+    return errs
+
+
 # ── main ────────────────────────────────────────────────────────────────
 def main(argv):
     wanted = set(argv)

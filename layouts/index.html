@@ -1,48 +1,38 @@
 {{ define "main" }}
-
-{{ $images := slice
-    (resources.Get "img/Fleckviehkuehe-Weide.jpg")
-    (resources.Get "img/schweinestall.jpg")
-    (resources.Get "img/schleppschlauch2.jpg")
-}}
-{{ $validImages := slice }}
-{{ range $images }}
-    {{ if . }}{{ $validImages = $validImages | append . }}{{ end }}
-{{ end }}
-
-{{/* ── Two-column: content left, slider right ── */}}
-<div class="uk-container" style="margin-top: 32px; margin-bottom: 60px;">
-    <div class="uk-grid uk-grid-large uk-flex-middle" uk-grid>
-
-        {{/* Left: intro text */}}
-        <div class="uk-width-3-5@m uk-width-1-1">
-            <div class="ag-intro">
-                {{ .Content }}
-            </div>
+{{- $suffix := index (dict "de" "d" "en" "e" "fr" "f") site.Language.Lang | default "e" -}}
+{{- $flux := resources.Get (printf "img/Stoffflussmodell-Agrammon-2015%s.jpg" $suffix) -}}
+<section class="hero">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <h1>{{ site.Title }}</h1>
+        <div class="hero-copy">{{ .Content }}</div>
+        <div class="cta-row">
+          {{- with site.GetPage "/modell" }}
+          <a class="btn btn-leaf" href="{{ .RelPermalink }}">{{ i18n "model_link_label" }} →</a>
+          {{- end }}
+          {{- range site.Menus.main }}{{ if eq .Identifier "dokumentation" }}
+          <a class="btn btn-ghost" href="{{ .URL }}">{{ .Name }}</a>
+          {{- end }}{{ end }}
         </div>
-
-        {{/* Right: slider — shown only when images exist */}}
-        {{ if $validImages }}
-        <div class="uk-width-2-5@m uk-width-1-1">
-            <section class="ag-hero">
-                <div class="uk-position-relative" uk-slideshow="autoplay: true; autoplay-interval: 5000; animation: fade">
-                    <ul class="uk-slideshow-items">
-                        {{ range $validImages }}
-                            {{ $imgResized := .Resize "700x webp q85" }}
-                            <li>
-                                <img src="{{ $imgResized.RelPermalink }}" alt="{{ $.Site.Title }}" style="width:100%; display:block;">
-                            </li>
-                        {{ end }}
-                    </ul>
-                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
-                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
-                </div>
-            </section>
-        </div>
-        {{ end }}
-
+      </div>
+      {{- with $flux }}
+      {{- $img := .Resize "900x webp q85" }}
+      <figure class="hero-figure">
+        <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ i18n "flux_caption" }}">
+        <figcaption>{{ i18n "flux_caption" }}</figcaption>
+      </figure>
+      {{- end }}
     </div>
-</div>
+  </div>
+</section>
 
-
+<section class="section">
+  <div class="wrap">
+    {{- with site.GetPage "/modell" }}
+    <div class="sec-head"><h2>{{ .Title }}</h2><span class="eyebrow">model.agrammon.ch</span></div>
+    {{- end }}
+    {{ partial "model-cards.html" . }}
+  </div>
+</section>
 {{ end }}
