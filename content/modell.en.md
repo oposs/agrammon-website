@@ -13,5 +13,5 @@ We recommend that you use the browser Firefox, Google Chrome or Microsoft Edge (
 
 ### Operating instructions
 
-- Operating Instructions Single Farm Model: [in German](/assets/Files/Anleitung-Einzelbetrieb-20130823-d.pdf), [in French](/assets/Files/Anleitung-Einzelbetrieb-20130823-f.pdf)
-- Additional Operating Instructions Regional Model: [in German](/assets/Files/Anleitung-Regional-20130823-d.pdf), [in French](/assets/Files/Anleitung-Regional-20130828-f.pdf)
+- Operating Instructions Single Farm Model: [in German](Anleitung-Einzelbetrieb-20130823-d.pdf), [in French](Anleitung-Einzelbetrieb-20130823-f.pdf)
+- Additional Operating Instructions Regional Model: [in German](Anleitung-Regional-20130823-d.pdf), [in French](Anleitung-Regional-20130828-f.pdf)

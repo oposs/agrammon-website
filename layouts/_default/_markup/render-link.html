@@ -4,10 +4,21 @@
          relURL leaves root-relative paths untouched.
        - Links to PDFs get class "pdf" (shaped into download rows by
          partials/dl-rows.html).
-       - External links get a ↗ marker. */ -}}
+       - External links get a ↗ marker.
+       - A bare PDF file name, e.g. [PDF](02395.pdf), is looked up in
+         static/assets/Documents/, then static/assets/Files/; a name found
+         in neither fails the build, naming file and page. */ -}}
 {{- $u := .Destination -}}
 {{- $parsed := urls.Parse $u -}}
 {{- $external := in (slice "http" "https") $parsed.Scheme -}}
+{{- if and (not $parsed.Scheme) (not (strings.Contains $u "/")) (strings.HasSuffix (lower $u) ".pdf") -}}
+  {{- $found := "" -}}
+  {{- range slice "Documents" "Files" -}}
+    {{- if and (not $found) (os.FileExists (printf "static/assets/%s/%s" . $u)) }}{{ $found = printf "/assets/%s/%s" . $u }}{{ end -}}
+  {{- end -}}
+  {{- if not $found }}{{ errorf "PDF %q not found in static/assets/Documents/ or static/assets/Files/ (linked from %s)" $u .Page.File.Path }}{{ end -}}
+  {{- $u = $found -}}
+{{- end -}}
 {{- if strings.HasPrefix $u "/assets/" }}{{ $u = strings.TrimPrefix "/" $u | relURL }}{{ end -}}
 {{- if strings.HasSuffix (lower $parsed.Path) ".pdf" -}}
 <a class="pdf" href="{{ $u }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>

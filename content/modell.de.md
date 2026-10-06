@@ -15,5 +15,5 @@ Zur Verwendung von Agrammon benötigen Sie ein Benutzerkonto, unter dem die von 
 
 ### Anleitungen
 
-- [Basis-Anleitung Agrammon (PDF)](/assets/Files/Anleitung-Einzelbetrieb-20130823-d.pdf)
-- [Zusatz-Anleitung Regionalmodell (PDF)](/assets/Files/Anleitung-Regional-20130823-d.pdf)
+- [Basis-Anleitung Agrammon (PDF)](Anleitung-Einzelbetrieb-20130823-d.pdf)
+- [Zusatz-Anleitung Regionalmodell (PDF)](Anleitung-Regional-20130823-d.pdf)

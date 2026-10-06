@@ -13,5 +13,5 @@ Pour utiliser cette application, vous devez créer un compte d'utilisateur : vou
 
 ### Modes d'emploi
 
-- [Mode d'emploi modèle Exploitation individuelle (PDF)](/assets/Files/Anleitung-Einzelbetrieb-20130823-f.pdf)
-- [Mode d'emploi supplémentaire modèle régional (PDF)](/assets/Files/Anleitung-Regional-20130828-f.pdf)
+- [Mode d'emploi modèle Exploitation individuelle (PDF)](Anleitung-Einzelbetrieb-20130823-f.pdf)
+- [Mode d'emploi supplémentaire modèle régional (PDF)](Anleitung-Regional-20130828-f.pdf)
