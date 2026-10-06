@@ -2,8 +2,7 @@
 .modelcards{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:8px}
 .variant{padding:30px 26px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column}
 .variant:last-child{border-right:none}
-.variant .idx{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
-.variant h3{font-family:var(--display);font-weight:600;font-size:1.32rem;margin:14px 0 10px;letter-spacing:-.01em}
+.variant h3{font-family:var(--display);font-weight:600;font-size:1.32rem;margin:0 0 10px;letter-spacing:-.01em}
 .variant p{color:#3c4940;font-size:.98rem;margin:0 0 18px}
 .variant .launch{margin-top:auto;align-self:flex-start}
 .tag{align-self:flex-start;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;

@@ -1,13 +1,12 @@
 {{- /* The three model variants with launch buttons. Context: any page. */ -}}
 {{- $lang := site.Language.Lang -}}
 {{- $cards := slice
-    (dict "key" "einzel"   "path" "single"   "idx" "01")
-    (dict "key" "regional" "path" "regional" "idx" "02")
-    (dict "key" "kantonal" "path" "kantonal" "idx" "03" "frozen" true) -}}
+    (dict "key" "einzel"   "path" "single")
+    (dict "key" "regional" "path" "regional")
+    (dict "key" "kantonal" "path" "kantonal" "frozen" true) -}}
 <div class="modelcards">
   {{- range $cards }}
   <div class="variant">
-    <span class="idx">{{ .idx }}</span>
     <h3>{{ i18n (printf "modell_%s" .key) }}</h3>
     {{- if .frozen }}
     <span class="tag">⚠ {{ i18n "modell_kantonal_note" }}</span>

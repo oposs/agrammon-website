@@ -6,10 +6,9 @@
     <div class="prose dl-body">
       {{ .Content }}
       <div class="dlnav">
-        {{- range $i, $p := .Pages.ByWeight }}
+        {{- range $p := .Pages.ByWeight }}
         {{- $n := len (findRE `class="pdf"` $p.Content) }}
         <a href="{{ $p.RelPermalink }}">
-          <span class="k">{{ printf "%02d" (add $i 1) }}</span>
           <h3>{{ $p.Title }} <span class="arr">→</span></h3>
           {{- if $n }}<p>{{ i18n "documents_count" $n }}</p>{{ end }}
         </a>

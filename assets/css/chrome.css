@@ -27,7 +27,7 @@ footer nav.foot a:hover{text-decoration:underline}
 .pagehead .eyebrow{color:var(--leaf);margin:0 0 .72rem}
 .pagehead h1{font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,3.2vw,2.32rem);letter-spacing:-.02em;margin:.4rem 0 0}
 .crumb{font-family:var(--mono);font-size:.8rem;color:var(--muted);padding:14px 0;border-bottom:1px solid var(--line)}
-.crumb a{color:var(--leaf-deep);text-decoration:none}
+.crumb a{color:var(--pine);text-decoration:none}
 .crumb a:hover{text-decoration:underline}
 .crumb span{color:var(--ink)}
 

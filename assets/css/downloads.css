@@ -15,8 +15,7 @@
 .dlnav{border-top:1px solid var(--line);margin-top:8px}
 .prose .dlnav a{display:block;text-decoration:none;padding:26px 24px;border-bottom:1px solid var(--line);transition:.12s;color:inherit}
 .prose .dlnav a:hover{background:#fff}
-.dlnav .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--muted)}
-.dlnav h3{font-family:var(--display);font-weight:600;font-size:1.2rem;margin:8px 0 4px;color:var(--pine)}
+.dlnav h3{font-family:var(--display);font-weight:600;font-size:1.2rem;margin:0 0 4px;color:var(--pine)}
 .dlnav p{margin:0;color:#46524a;font-size:.92rem}
 .dlnav .arr{color:var(--leaf-deep);font-weight:600}
 

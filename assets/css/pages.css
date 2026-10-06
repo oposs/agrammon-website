@@ -37,7 +37,7 @@
 .team-block .org h2 a:hover{color:var(--leaf-deep)}
 .team-block .role{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--leaf-deep)}
 .team-block .desc{color:#3c4940;max-width:62ch;margin:14px 0 22px}
-.team-block .desc a{color:var(--leaf-deep)}
+.team-block .desc a{color:var(--pine)}
 .people{display:flex;flex-wrap:wrap;gap:30px}
 .person{width:128px;text-align:center}
 .person img{width:108px;height:108px;border-radius:50%;object-fit:cover;filter:grayscale(.15);border:2px solid #fff;box-shadow:0 0 0 1px var(--line)}
@@ -45,7 +45,7 @@
 .steer{list-style:none;padding:0;margin:14px 0 0;max-width:60ch}
 .steer li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.98rem}
 .steer li b{font-weight:600}
-.steer li a{color:var(--leaf-deep);text-decoration:none;font-family:var(--mono);font-size:.88rem}
+.steer li a{color:var(--pine);text-decoration:none;font-family:var(--mono);font-size:.88rem}
 
 @media(max-width:860px){
   .cards{grid-template-columns:1fr}
