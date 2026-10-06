@@ -11,7 +11,10 @@ defaultContentLanguageInSubdir: true
 
 imaging:
   resampleFilter: Lanczos
-  quality: 90
+  jpeg:
+    quality: 90
+  webp:
+    quality: 90
   anchor: Top
 
 params:
