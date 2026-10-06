@@ -63,3 +63,6 @@
 
 - id: modell_kantonal_note
   translation: "This variant is frozen and will be taken offline in 2028."
+
+- id: menu
+  translation: Menu

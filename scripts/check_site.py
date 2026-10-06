@@ -242,6 +242,100 @@ def no_uikit_sass_or_dark_mode_assets(ctx):
     return errs
 
 
+# ── chrome (Task 3) ─────────────────────────────────────────────────────
+NAV = {
+    "de": ["Dokumentation", "Modell Agrammon", "Downloads", "Kontakt", "Über uns"],
+    "en": ["Documentation", "Agrammon Model", "Downloads", "Contact", "About Us"],
+    "fr": ["Documentation", "Modèle Agrammon", "Télécharger", "Contact", "Qui sommes-nous?"],
+}
+
+
+@check("chrome")
+def header_nav(ctx):
+    errs = []
+    for lang, url, f in content_pages(ctx.root):
+        nav = parse(f).find("nav", "main")
+        if nav is None or nav.attrs.get("id") != "site-nav":
+            errs.append(f"{url}: no nav.main#site-nav")
+            continue
+        links = nav.find_all("a")
+        names = [a.text() for a in links]
+        if names != NAV[lang]:
+            errs.append(f"{url}: nav {names}")
+        active = [a.attrs["href"] for a in links if "active" in a.classes]
+        expected = [a.attrs["href"] for a in links if url.startswith(a.attrs["href"])]
+        if active != expected:
+            errs.append(f"{url}: active {active}, expected {expected}")
+    return errs
+
+
+@check("chrome")
+def language_switcher(ctx):
+    errs = []
+    for site in (ctx.root, ctx.sub):
+        for lang, url, f in content_pages(site):
+            switch = parse(f).find("div", "lang")
+            if switch is None:
+                errs.append(f"{site.name}{url}: no .lang")
+                continue
+            links = switch.find_all("a")
+            labels = [a.text() for a in links]
+            current = [a.text() for a in links if "current" in a.classes]
+            seps = len(switch.find_all("span", "sep"))
+            if labels != ["DE", "EN", "FR"] or current != [lang.upper()] or seps != 2:
+                errs.append(f"{site.name}{url}: labels={labels} current={current} seps={seps}")
+            for a in links:
+                href = a.attrs.get("href", "")
+                if site is ctx.sub and not href.startswith(SUBPATH):
+                    errs.append(f"sub{url}: {href} lacks subpath")
+                if not page_file(site, href).exists():
+                    errs.append(f"{site.name}{url}: {href} does not exist")
+    return errs
+
+
+@check("chrome")
+def footer_links(ctx):
+    errs = []
+    for lang, url, f in content_pages(ctx.root):
+        foot = parse(f).find("footer")
+        hrefs = [a.attrs.get("href") for a in foot.find_all("a")] if foot else []
+        for need in (f"/{lang}/kontakt/", f"/{lang}/links/"):
+            if need not in hrefs:
+                errs.append(f"{url}: footer lacks {need}")
+    return errs
+
+
+@check("chrome")
+def mobile_menu_button(ctx):
+    errs = []
+    for lang, url, f in content_pages(ctx.root):
+        doc = parse(f)
+        btn = doc.find("button", "menu-btn")
+        if (btn is None or btn.attrs.get("aria-controls") != "site-nav"
+                or btn.attrs.get("aria-expanded") != "false" or not btn.text()):
+            errs.append(f"{url}: menu button missing or incomplete")
+        srcs = [s.attrs["src"] for s in doc.find_all("script") if s.attrs.get("src")]
+        if not any(re.search(r"/js/nav(\.min)?\.[0-9a-f]{64}\.js$", s) for s in srcs):
+            errs.append(f"{url}: nav.js not loaded")
+    return errs
+
+
+@check("chrome")
+def chrome_is_theme2_only(ctx):
+    errs = []
+    for lang, url, f in content_pages(ctx.root):
+        doc = parse(f)
+        for part in ("header", "footer"):
+            node = doc.find(part)
+            if node is None:
+                errs.append(f"{url}: no <{part}>")
+            elif uikit_markup(node):
+                errs.append(f"{url}: UIkit markup in <{part}>")
+        if "theme-toggle" in f.read_text(encoding="utf-8"):
+            errs.append(f"{url}: dark-mode toggle still present")
+    return errs
+
+
 # ── main ────────────────────────────────────────────────────────────────
 def main(argv):
     wanted = set(argv)

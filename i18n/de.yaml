@@ -63,3 +63,6 @@
 
 - id: modell_kantonal_note
   translation: "Diese Variante ist eingefroren und wird 2028 ausser Betrieb genommen."
+
+- id: menu
+  translation: Menü
