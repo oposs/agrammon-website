@@ -1,0 +1,15 @@
+{{- /* Sidebar tree of a section. Args: root (section page), page (current). */ -}}
+{{- $root := .root -}}
+{{- $here := .page.RelPermalink -}}
+<aside class="doc-nav">
+  <p class="grp">{{ $root.Title }}</p>
+  <ul>
+    <li><a href="{{ $root.RelPermalink }}"{{ if eq $here $root.RelPermalink }} class="active" aria-current="page"{{ end }}>{{ i18n "overview" }}</a></li>
+    {{- range $root.Pages.ByWeight }}
+    <li><a href="{{ .RelPermalink }}"{{ if eq $here .RelPermalink }} class="active" aria-current="page"{{ end }}>{{ .Title }}</a></li>
+      {{- range .Pages.ByWeight }}
+    <li><a href="{{ .RelPermalink }}" class="sub{{ if eq $here .RelPermalink }} active{{ end }}"{{ if eq $here .RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a></li>
+      {{- end }}
+    {{- end }}
+  </ul>
+</aside>

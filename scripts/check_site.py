@@ -339,7 +339,7 @@ def chrome_is_theme2_only(ctx):
 # ── pagehead (Task 4) ───────────────────────────────────────────────────
 # Top-level paths whose layouts are ported in later tasks; each task
 # removes its entry when it switches that layout to the page header.
-PAGEHEAD_PENDING = {"dokumentation", "downloads", "modell", "kontakt", "ueber-uns"}
+PAGEHEAD_PENDING = {"downloads", "modell", "kontakt", "ueber-uns"}
 
 
 @check("pagehead")
@@ -389,6 +389,40 @@ def not_found_page(ctx):
             home = [a for a in main.find_all("a") if a.attrs.get("href") == f"/{lang}/"]
             if not home:
                 errs.append(f"/{lang}/404.html: no link to /{lang}/")
+    return errs
+
+
+# ── docs (Task 5) ───────────────────────────────────────────────────────
+def sidebar_errors(url, doc, root_url, entries, subs):
+    nav = doc.find("aside", "doc-nav")
+    if nav is None:
+        return [f"{url}: no sidebar"]
+    errs = []
+    links = nav.find_all("a")
+    hrefs = [a.attrs.get("href") for a in links]
+    active = [a.attrs.get("href") for a in links if "active" in a.classes]
+    n_sub = len([a for a in links if "sub" in a.classes])
+    if len(links) != entries or n_sub != subs:
+        errs.append(f"{url}: sidebar has {len(links)} entries / {n_sub} sub, want {entries} / {subs}")
+    if not hrefs or hrefs[0] != root_url:
+        errs.append(f"{url}: first sidebar entry {hrefs[:1]} != {root_url}")
+    if active != [url]:
+        errs.append(f"{url}: active sidebar entries {active}")
+    return errs
+
+
+@check("docs")
+def docs_sidebar_and_prose(ctx):
+    errs = []
+    for lang, url, f in content_pages(ctx.root):
+        if not url.startswith(f"/{lang}/dokumentation/"):
+            continue
+        doc = parse(f)
+        errs += sidebar_errors(url, doc, f"/{lang}/dokumentation/", entries=6, subs=2)
+        if doc.find("div", "prose") is None:
+            errs.append(f"{url}: no .prose body")
+        if uikit_markup(doc.find("main")):
+            errs.append(f"{url}: UIkit markup in <main>")
     return errs
 
 

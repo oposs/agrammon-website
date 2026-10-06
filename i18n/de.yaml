@@ -66,3 +66,6 @@
 
 - id: menu
   translation: Menü
+
+- id: overview
+  translation: Übersicht
