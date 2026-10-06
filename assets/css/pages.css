@@ -1,6 +1,7 @@
 /* Single pages: links, modell, kontakt, über uns (theme2). */
 
 /* Links */
+.links .lede p{margin-bottom:40px}
 .linkgroup{margin-bottom:38px}
 .linkgroup .h{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf-deep);
               border-bottom:1px solid var(--line);padding-bottom:10px;margin:0 0 6px}
