@@ -54,7 +54,7 @@ img{max-width:100%;height:auto}
 /* Editorial TODO marker ({{< todo >}} shortcode) */
 .ag-todo{display:block;background:#FBF3D6;border-left:4px solid #E0A800;color:#6b5200;padding:14px 16px;
          border-radius:2px;font-size:.92rem;margin:1.4rem 0}
-.ag-todo-label{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.ag-todo-label{display:block;font-family:var(--mono);font-weight:700;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
 .ag-todo a{color:inherit}
 
 @media(max-width:860px){
