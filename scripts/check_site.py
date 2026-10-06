@@ -175,6 +175,73 @@ def language_homes_exist(ctx):
             if not (ctx.root / lang / "index.html").exists()]
 
 
+# ── foundation (Task 2) ─────────────────────────────────────────────────
+@check("foundation")
+def no_google_fonts(ctx):
+    errs = []
+    files = list(all_html(ctx.root)) + [
+        f for f in ctx.root.rglob("*.css")
+        if f.relative_to(ctx.root).parts[0] not in MOCKUPS]
+    for f in files:
+        if re.search(r"fonts\.(googleapis|gstatic)\.com", f.read_text(encoding="utf-8")):
+            errs.append(f"{f.relative_to(ctx.root)} references Google Fonts")
+    return errs
+
+
+@check("foundation")
+def single_fingerprinted_stylesheet(ctx):
+    errs = []
+    for site in (ctx.root, ctx.sub):
+        for f in all_html(site):
+            links = [n for n in parse(f).find_all("link")
+                     if n.attrs.get("rel") == "stylesheet"]
+            rel = f.relative_to(site)
+            if len(links) != 1:
+                errs.append(f"{site.name}/{rel}: {len(links)} stylesheets")
+                continue
+            href = links[0].attrs.get("href", "")
+            if (not re.search(r"/css/site(\.min)?\.[0-9a-f]{64}\.css$", href)
+                    or not page_file(site, href).exists()):
+                errs.append(f"{site.name}/{rel}: bad stylesheet {href}")
+    return errs
+
+
+@check("foundation")
+def fonts_self_hosted_and_resolve(ctx):
+    errs = []
+    for site in (ctx.root, ctx.sub):
+        css = sorted(site.glob("css/site.*.css"))
+        if not css:
+            errs.append(f"{site.name}: no css/site.*.css")
+            continue
+        urls = re.findall(r"url\(([^)]+)\)", css[0].read_text(encoding="utf-8"))
+        fonts = [u.strip("'\"") for u in urls if ".woff2" in u]
+        if len(fonts) != 18:
+            errs.append(f"{site.name}: {len(fonts)} woff2 urls, want 18")
+        for u in fonts:
+            if u.startswith(("http:", "https:", "/")):
+                errs.append(f"{site.name}: font url not relative: {u}")
+            elif not (css[0].parent / u).resolve().exists():
+                errs.append(f"{site.name}: font missing: {u}")
+    return errs
+
+
+@check("foundation")
+def no_uikit_sass_or_dark_mode_assets(ctx):
+    errs = []
+    for f in all_html(ctx.root):
+        text = f.read_text(encoding="utf-8")
+        for needle in ("uikit", "theme.js", "localStorage"):
+            if needle in text:
+                errs.append(f"{f.relative_to(ctx.root)} contains {needle!r}")
+    for path in ("assets/uikit", "assets/scss", "assets/js/theme.js"):
+        if (ROOT / path).exists():
+            errs.append(f"{path} still exists")
+    if "sass" in (ROOT / "mise.toml").read_text(encoding="utf-8"):
+        errs.append("mise.toml still pins sass")
+    return errs
+
+
 # ── main ────────────────────────────────────────────────────────────────
 def main(argv):
     wanted = set(argv)
