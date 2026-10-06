@@ -13,6 +13,7 @@
 <a class="pdf" href="{{ $u }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
 {{- else if $external -}}
 <a href="{{ $u }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }} <span class="ext" aria-hidden="true">↗</span></a>
+  {{- if eq .Page.Path "/links" }}<span class="u">{{ strings.TrimPrefix "www." $parsed.Host }}</span>{{ end -}}
 {{- else -}}
 <a href="{{ $u }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
 {{- end -}}

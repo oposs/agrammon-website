@@ -1,1 +1,13 @@
-/* pages.css -- filled in by a later task of the theme2 port. */
+/* Single pages: links, modell, kontakt, über uns (theme2). */
+
+/* Links */
+.linkgroup{margin-bottom:38px}
+.linkgroup .h{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf-deep);
+              border-bottom:1px solid var(--line);padding-bottom:10px;margin:0 0 6px}
+.linklist{list-style:none;padding:0;margin:0;max-width:72ch}
+.linklist li{padding:14px 0;border-bottom:1px solid var(--line)}
+.linklist a{font-family:var(--display);font-weight:600;font-size:1.06rem;color:var(--pine);text-decoration:none}
+.linklist a:hover{color:var(--leaf-deep)}
+.linklist a .ext{color:var(--leaf-deep);font-weight:400}
+.linklist .u{display:block;font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-top:3px}
+.prose .ext{font-size:.85em;text-decoration:none}

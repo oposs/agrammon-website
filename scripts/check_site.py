@@ -554,6 +554,37 @@ def overview_tiles(ctx):
     return errs
 
 
+# ── links (Task 7) ──────────────────────────────────────────────────────
+@check("links")
+def links_page_groups(ctx):
+    errs = []
+    for lang in LANGS:
+        url = f"/{lang}/links/"
+        md = (ROOT / f"content/links.{lang}.md").read_text(encoding="utf-8")
+        n_groups = len(re.findall(r"^## ", md, re.M))
+        n_items = len(re.findall(r"^- \[", md, re.M))
+        main = parse(page_file(ctx.root, url)).find("main")
+        groups = main.find_all("div", "linkgroup")
+        if len(groups) != n_groups:
+            errs.append(f"{url}: {len(groups)} groups, source has {n_groups}")
+        for g in groups:
+            if g.find("p", "h") is None or g.find("ul", "linklist") is None:
+                errs.append(f"{url}: group without label or list")
+        items = [li for g in groups for li in g.find_all("li")]
+        if len(items) != n_items:
+            errs.append(f"{url}: {len(items)} links, source has {n_items}")
+        for li in items:
+            a, u = li.find("a"), li.find("span", "u")
+            host = re.sub(r"^www\.", "", urlparse(a.attrs.get("href", "")).netloc)
+            if a.find("span", "ext") is None or u is None or u.text() != host:
+                errs.append(f"{url}: {a.text()[:40]!r} lacks ↗ or domain {host!r}")
+        if main.find("div", "lede") is None:
+            errs.append(f"{url}: intro paragraph missing")
+        if uikit_markup(main):
+            errs.append(f"{url}: UIkit markup in <main>")
+    return errs
+
+
 # ── main ────────────────────────────────────────────────────────────────
 def main(argv):
     wanted = set(argv)
