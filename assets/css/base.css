@@ -13,7 +13,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);f
 a{color:inherit}
 img{max-width:100%;height:auto}
 :focus-visible{outline:3px solid var(--leaf);outline-offset:2px}
-.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.wrap{max-width:1400px;margin:0 auto;padding:0 20px}
 .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
 .page{padding:50px 0 90px}
 .lede p,p.lede{max-width:62ch;color:#46524a;margin:0 0 32px}

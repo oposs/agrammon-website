@@ -4,7 +4,7 @@ header.bar{position:sticky;top:0;z-index:20;background:var(--pine);color:var(--p
 .brand{font-family:var(--display);font-weight:700;font-size:1.32rem;letter-spacing:.02em;text-decoration:none;display:flex;align-items:center;gap:9px}
 .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 4px rgba(143,203,58,.18)}
 nav.main{display:flex;gap:26px;margin-left:auto;font-size:.95rem}
-nav.main a{text-decoration:none;color:rgba(255,255,255,.82);padding:4px 0;border-bottom:2px solid transparent;transition:.15s}
+nav.main a{white-space:nowrap;text-decoration:none;color:rgba(255,255,255,.82);padding:4px 0;border-bottom:2px solid transparent;transition:.15s}
 nav.main a:hover,nav.main a.active{color:#fff;border-color:var(--leaf)}
 .lang{display:flex;gap:7px;font-family:var(--mono);font-size:.8rem;color:rgba(255,255,255,.55)}
 .lang a{color:rgba(255,255,255,.55);text-decoration:none}
@@ -30,6 +30,11 @@ footer nav.foot a:hover{text-decoration:underline}
 .crumb a{color:var(--pine);text-decoration:none}
 .crumb a:hover{text-decoration:underline}
 .crumb span{color:var(--ink)}
+/* Narrow desktop: tighten the bar so long (FR) labels stay on one line. */
+@media(max-width:1000px){
+  .bar .wrap{gap:20px}
+  nav.main{gap:14px}
+}
 
 @media(max-width:860px){
   .bar .wrap{gap:16px}
