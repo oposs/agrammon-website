@@ -10,6 +10,9 @@
 
     {{ partial "footer.html" . }}
 
+    {{ $nav := resources.Get "js/nav.js" | minify | fingerprint }}
+    <script src="{{ $nav.RelPermalink }}" integrity="{{ $nav.Data.Integrity }}" defer></script>
+
     {{/* Force external links to open in new tab */}}
     <script>
     document.addEventListener('DOMContentLoaded', function () {

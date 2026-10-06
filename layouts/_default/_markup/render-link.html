@@ -1,6 +1,19 @@
-{{- /* Link render hook: make root-relative /assets/ links (PDFs etc.) base-URL
-       aware via relURL, so they resolve under the GitHub Pages subpath too.
-       relref-generated and external links pass through unchanged. */ -}}
+{{- /* Link render hook.
+       - /assets/… links are made base-URL aware (works under the GitHub
+         Pages subpath): the leading slash is dropped before relURL, since
+         relURL leaves root-relative paths untouched.
+       - Links to PDFs get class "pdf" (shaped into download rows by
+         partials/dl-rows.html).
+       - External links get a ↗ marker. */ -}}
 {{- $u := .Destination -}}
-{{- if strings.HasPrefix $u "/assets/" }}{{ $u = $u | relURL }}{{ end -}}
+{{- $parsed := urls.Parse $u -}}
+{{- $external := in (slice "http" "https") $parsed.Scheme -}}
+{{- if strings.HasPrefix $u "/assets/" }}{{ $u = strings.TrimPrefix "/" $u | relURL }}{{ end -}}
+{{- if strings.HasSuffix (lower $parsed.Path) ".pdf" -}}
+<a class="pdf" href="{{ $u }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- else if $external -}}
+<a href="{{ $u }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }} <span class="ext" aria-hidden="true">↗</span></a>
+  {{- if eq .Page.Path "/links" }}<span class="u">{{ strings.TrimPrefix "www." $parsed.Host }}</span>{{ end -}}
+{{- else -}}
 <a href="{{ $u }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- end -}}

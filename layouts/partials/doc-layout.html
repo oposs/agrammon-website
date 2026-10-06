@@ -1,0 +1,8 @@
+{{- /* Page header + sidebar + body. Args: page, root, bodyClass, body (HTML). */ -}}
+{{ partial "pagehead.html" .page }}
+<div class="wrap">
+  <div class="doc">
+    {{ partial "section-nav.html" (dict "root" .root "page" .page) }}
+    <div class="{{ .bodyClass }}">{{ .body }}</div>
+  </div>
+</div>

@@ -1,29 +1,3 @@
 {{ define "main" }}
-
-<div class="ag-page-header">
-    <div class="uk-container">
-        <h1>{{ .Title }}</h1>
-    </div>
-</div>
-
-{{/* Breadcrumb for nested sections (e.g. modellparameter) */}}
-{{ $docRoot := $.Site.GetPage "/dokumentation" }}
-{{ if ne .RelPermalink $docRoot.RelPermalink }}
-<div class="uk-container">
-    <div class="ag-breadcrumb">
-        <ul class="uk-breadcrumb">
-            <li><a href="{{ $docRoot.RelPermalink }}">{{ $docRoot.Title }}</a></li>
-            <li><span>{{ .Title }}</span></li>
-        </ul>
-    </div>
-</div>
-{{ end }}
-
-<div class="uk-container ag-content">
-    {{ with .Content }}
-    <div class="ag-intro">{{ . }}</div>
-    {{ end }}
-
-</div>
-
+{{ partial "doc-layout.html" (dict "page" . "root" (site.GetPage "/dokumentation") "bodyClass" "prose" "body" .Content) }}
 {{ end }}

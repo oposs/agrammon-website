@@ -63,3 +63,20 @@
 
 - id: modell_kantonal_note
   translation: "Cette variante est gelée et sera mise hors service en 2028."
+
+- id: menu
+  translation: Menu
+
+- id: overview
+  translation: Vue d'ensemble
+
+- id: pdf_download
+  translation: "PDF ↓"
+
+- id: documents_count
+  translation:
+    one: "{{ .Count }} document"
+    other: "{{ .Count }} documents"
+
+- id: flux_caption
+  translation: "Visualisation schématique (modélisation des flux)"

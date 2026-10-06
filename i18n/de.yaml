@@ -63,3 +63,20 @@
 
 - id: modell_kantonal_note
   translation: "Diese Variante ist eingefroren und wird 2028 ausser Betrieb genommen."
+
+- id: menu
+  translation: Menü
+
+- id: overview
+  translation: Übersicht
+
+- id: pdf_download
+  translation: "PDF ↓"
+
+- id: documents_count
+  translation:
+    one: "{{ .Count }} Dokument"
+    other: "{{ .Count }} Dokumente"
+
+- id: flux_caption
+  translation: "Schematische Darstellung (Flussmodell)"

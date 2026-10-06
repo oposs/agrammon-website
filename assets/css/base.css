@@ -1,0 +1,65 @@
+/* Base: design tokens, reset, typography and shared components (theme2). */
+:root{
+  --ink:#15211A; --paper:#F7F5EE; --pine:#1F4530; --pine-2:#143024;
+  --leaf:#8FCB3A; --leaf-deep:#6FA32A; --line:#E2DFD3; --muted:#5E6B60; --paper-dim:#ECE9DD;
+  --display:'Space Grotesk',system-ui,sans-serif;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;
+     -webkit-font-smoothing:antialiased;overflow-wrap:break-word;padding-bottom:64px}
+a{color:inherit}
+img{max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--leaf);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
+.page{padding:50px 0 90px}
+.lede p,p.lede{max-width:62ch;color:#46524a;margin:0 0 32px}
+
+/* Buttons */
+.btn{font-family:var(--display);font-weight:600;font-size:.98rem;text-decoration:none;padding:13px 22px;border-radius:2px;
+     display:inline-flex;align-items:center;gap:9px;transition:.15s;cursor:pointer;border:none}
+.btn-leaf{background:var(--leaf);color:var(--pine-2)}
+.btn-leaf:hover{background:#A2DD4C;transform:translateY(-1px)}
+.btn-ghost{color:var(--paper);border:1px solid rgba(255,255,255,.28)}
+.btn-ghost:hover{border-color:var(--leaf);color:var(--leaf)}
+
+/* Section heading */
+.section{padding:84px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;
+          border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:8px}
+.sec-head h2{font-family:var(--display);font-weight:600;font-size:1.9rem;letter-spacing:-.01em;margin:0}
+.sec-head .eyebrow{color:var(--leaf-deep)}
+
+/* Prose (Markdown content) */
+.prose{max-width:64ch}
+.prose h2{font-family:var(--display);font-weight:600;font-size:1.55rem;letter-spacing:-.01em;margin:2.2rem 0 .8rem;color:var(--pine)}
+.prose h2:first-child{margin-top:0}
+.prose h3{font-family:var(--display);font-weight:600;font-size:1.15rem;margin:1.8rem 0 .5rem}
+.prose p{margin:0 0 1.1rem}
+.prose code{overflow-wrap:anywhere}
+.prose a{color:var(--leaf-deep);text-decoration:underline;text-underline-offset:2px}
+.prose a:hover{color:var(--pine)}
+.prose .btn{text-decoration:none}
+.prose ul,.prose ol{padding-left:1.1rem;margin:0 0 1.1rem}
+.prose li{margin:.3rem 0}
+.prose figure{margin:1.8rem 0}
+.prose img{width:100%;height:auto;border:1px solid var(--line)}
+.prose figcaption{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:8px}
+.prose table{display:block;overflow-x:auto;border-collapse:collapse;font-size:.92rem;margin:0 0 1.4rem}
+.prose th,.prose td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.prose th{font-family:var(--display);font-weight:600;color:var(--pine)}
+
+/* Editorial TODO marker ({{< todo >}} shortcode) */
+.ag-todo{display:block;background:#FBF3D6;border-left:4px solid #E0A800;color:#6b5200;padding:14px 16px;
+         border-radius:2px;font-size:.92rem;margin:1.4rem 0}
+.ag-todo-label{display:block;font-family:var(--mono);font-weight:700;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.ag-todo a{color:inherit}
+
+@media(max-width:860px){
+  .wrap{padding:0 16px}
+  .section{padding:56px 0}
+  .page{padding:32px 0 56px}
+}

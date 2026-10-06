@@ -1,9 +1,15 @@
-<footer class="ag-footer">
-    <div class="uk-container">
-        <div class="ag-footer-copy">
-            © {{ now.Year }} Agrammon —
-            <a href="https://www.hafl.bfh.ch/" target="_blank" rel="noopener">HAFL</a>,
-            <a href="https://www.oetiker.ch/" target="_blank" rel="noopener">Oetiker+Partner AG</a>
-        </div>
+<footer>
+  <div class="wrap">
+    <div>© {{ now.Year }} {{ site.Title }} —
+      <a href="https://www.hafl.bfh.ch/" target="_blank" rel="noopener">HAFL</a>,
+      <a href="https://www.oetiker.ch/" target="_blank" rel="noopener">Oetiker+Partner AG</a>
     </div>
+    <nav class="foot" aria-label="Footer">
+      {{- range site.Menus.main }}
+        {{- if in (slice "kontakt" "links") .Identifier }}
+      <a href="{{ .URL }}">{{ .Name }}</a>
+        {{- end }}
+      {{- end }}
+    </nav>
+  </div>
 </footer>

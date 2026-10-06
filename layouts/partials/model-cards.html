@@ -1,0 +1,19 @@
+{{- /* The three model variants with launch buttons. Context: any page. */ -}}
+{{- $lang := site.Language.Lang -}}
+{{- $cards := slice
+    (dict "key" "einzel"   "path" "single"   "idx" "01")
+    (dict "key" "regional" "path" "regional" "idx" "02")
+    (dict "key" "kantonal" "path" "kantonal" "idx" "03" "frozen" true) -}}
+<div class="modelcards">
+  {{- range $cards }}
+  <div class="variant">
+    <span class="idx">{{ .idx }}</span>
+    <h3>{{ i18n (printf "modell_%s" .key) }}</h3>
+    {{- if .frozen }}
+    <span class="tag">⚠ {{ i18n "modell_kantonal_note" }}</span>
+    {{- end }}
+    <p>{{ i18n (printf "modell_%s_desc" .key) }}</p>
+    <a class="btn btn-leaf launch" href="https://model.agrammon.ch/{{ .path }}/?lang={{ $lang }}" target="_blank" rel="noopener">{{ i18n "model_link_label" }} →</a>
+  </div>
+  {{- end }}
+</div>

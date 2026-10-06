@@ -1,0 +1,25 @@
+{{- /* Page header band + breadcrumb. Context: the page.
+       Eyebrow: front-matter `eyebrow`, else the nearest section's title. */ -}}
+{{- $p := . -}}
+{{- $parents := slice -}}
+{{- range $p.Ancestors.Reverse -}}
+  {{- if not .IsHome }}{{ $parents = $parents | append . }}{{ end -}}
+{{- end -}}
+{{- $eyebrow := $p.Params.eyebrow -}}
+{{- if and (not $eyebrow) $parents }}{{ $eyebrow = (index $parents (sub (len $parents) 1)).Title }}{{ end -}}
+<section class="pagehead">
+  <div class="wrap">
+    {{- with $eyebrow }}
+    <p class="eyebrow">{{ . }}</p>
+    {{- end }}
+    <h1>{{ $p.Title }}</h1>
+  </div>
+</section>
+{{- with $parents }}
+<nav class="crumb" aria-label="Breadcrumb">
+  <div class="wrap">
+    {{- range . }}<a href="{{ .RelPermalink }}">{{ .Title }}</a> / {{ end -}}
+    <span>{{ $p.Title }}</span>
+  </div>
+</nav>
+{{- end }}

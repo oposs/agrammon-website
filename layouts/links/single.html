@@ -1,0 +1,18 @@
+{{ define "main" }}
+{{ partial "pagehead.html" . }}
+{{- /* Content: intro paragraph, then "## Group" headings with link lists. */ -}}
+{{- $parts := split (string .Content) "<h2" }}
+<div class="wrap">
+  <div class="page links">
+    {{- with index $parts 0 }}
+    <div class="lede">{{ . | safeHTML }}</div>
+    {{- end }}
+    {{- range after 1 $parts }}
+      {{- $group := printf "<h2%s" . }}
+      {{- $group = replaceRE `<h2[^>]*>(.*?)</h2>` `<p class="h">$1</p>` $group }}
+      {{- $group = replace $group "<ul>" `<ul class="linklist">` }}
+    <div class="linkgroup">{{ $group | safeHTML }}</div>
+    {{- end }}
+  </div>
+</div>
+{{ end }}

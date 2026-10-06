@@ -1,8 +1,15 @@
 {{ define "main" }}
-
-{{/* Contact page intentionally has no page-header title (per customer). */}}
-<div class="uk-container ag-content">
-    {{ .Content }}
+{{ partial "pagehead.html" . }}
+{{- /* Content: one "## Role" heading per contact; each becomes a card. */ -}}
+{{- $parts := split (string .Content) "<h2" }}
+<div class="wrap">
+  <div class="page">
+    {{- with index $parts 0 }}{{ . | safeHTML }}{{ end }}
+    <div class="cards">
+      {{- range after 1 $parts }}
+      <div class="ccard">{{ replaceRE `^[^>]*>(.*?)</h2>` `<div class="role">$1</div>` . | safeHTML }}</div>
+      {{- end }}
+    </div>
+  </div>
 </div>
-
 {{ end }}

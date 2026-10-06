@@ -1,63 +1,49 @@
 {{ define "main" }}
+{{ partial "pagehead.html" . }}
+<div class="wrap">
+  <div class="page about">
 
-<div class="uk-container ag-content">
-
-    {{/* ── Team sections (HAFL, Oetiker+Partner) ── */}}
-    {{ range .Params.team_sections }}
-    <div class="ag-team-section uk-margin-large-bottom">
-        <h2>
-            <a href="{{ .url }}" target="_blank" rel="noopener">{{ .org }}</a>
-        </h2>
-        <p>{{ .description }}</p>
-
-        <div class="uk-grid uk-grid-medium uk-child-width-1-2@s uk-child-width-auto@m" uk-grid>
-            {{ range .members }}
-            <div>
-                <div class="ag-portrait">
-                    {{ $img := $.Page.Resources.GetMatch .image }}
-                    {{ if $img }}
-                        {{ $thumb := $img.Fill "200x200 webp q85" }}
-                        <img src="{{ $thumb.RelPermalink }}"
-                             alt="{{ .name }}"
-                             class="ag-portrait-img">
-                    {{ else }}
-                        <div class="ag-portrait-placeholder"></div>
-                    {{ end }}
-                    <p class="ag-portrait-name">{{ .name }}</p>
-                </div>
-            </div>
-            {{ end }}
+    {{- range .Params.team_sections }}
+    <section class="team-block">
+      <div class="org">
+        <h2><a href="{{ .url }}" target="_blank" rel="noopener">{{ .org }}</a></h2>
+        <span class="role">{{ .role_label }}</span>
+      </div>
+      <p class="desc">{{ .description }}</p>
+      <div class="people">
+        {{- range .members }}
+        {{- $name := .name }}
+        <div class="person">
+          {{- with $.Resources.GetMatch .image }}
+          {{- $thumb := .Fill "200x200 webp q85" }}
+          <img src="{{ $thumb.RelPermalink }}" width="108" height="108" alt="{{ $name }}">
+          {{- end }}
+          <div class="nm">{{ $name }}</div>
         </div>
-    </div>
-    {{ end }}
+        {{- end }}
+      </div>
+    </section>
+    {{- end }}
 
-    {{/* ── Steering group ── */}}
-    {{ with .Params.steering_label }}
-    <div class="uk-margin-large-bottom">
-        <h2>{{ . }}</h2>
-        <p>{{ $.Params.steering_description }}</p>
-        <ul>
-            {{ range $.Params.steering }}
-            <li>
-                <strong>{{ .name }}</strong> —
-                {{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .org }}</a>{{ else }}{{ .org }}{{ end }}
-            </li>
-            {{ end }}
-        </ul>
-    </div>
-    {{ end }}
+    {{- with .Params.steering_label }}
+    <section class="team-block">
+      <div class="org"><h2>{{ . }}</h2></div>
+      <p class="desc">{{ $.Params.steering_description }}</p>
+      <ul class="steer">
+        {{- range $.Params.steering }}
+        <li><b>{{ .name }}</b>{{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .org }}</a>{{ else }}<span>{{ .org }}</span>{{ end }}</li>
+        {{- end }}
+      </ul>
+    </section>
+    {{- end }}
 
-    {{/* ── Supported by ── */}}
-    {{ with .Params.supported_label }}
-    <div>
-        <h2>{{ . }}</h2>
-        <p>
-            <a href="{{ $.Params.supported_url }}" target="_blank" rel="noopener">{{ $.Params.supported_org }}</a>
-            {{ $.Params.supported_by }}
-        </p>
-    </div>
-    {{ end }}
+    {{- with .Params.supported_label }}
+    <section class="team-block">
+      <div class="org"><h2>{{ . }}</h2></div>
+      <p class="desc"><a href="{{ $.Params.supported_url }}" target="_blank" rel="noopener">{{ $.Params.supported_org }}</a> {{ $.Params.supported_by }}</p>
+    </section>
+    {{- end }}
 
+  </div>
 </div>
-
 {{ end }}

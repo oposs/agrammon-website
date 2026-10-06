@@ -25,7 +25,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install Hugo and Dart Sass (versions from mise.toml)
+      - name: Install Hugo (versions from mise.toml)
         uses: jdx/mise-action@v5
 
       - name: Setup Pages
