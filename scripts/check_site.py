@@ -336,6 +336,62 @@ def chrome_is_theme2_only(ctx):
     return errs
 
 
+# ── pagehead (Task 4) ───────────────────────────────────────────────────
+# Top-level paths whose layouts are ported in later tasks; each task
+# removes its entry when it switches that layout to the page header.
+PAGEHEAD_PENDING = {"dokumentation", "downloads", "modell", "kontakt", "ueber-uns"}
+
+
+@check("pagehead")
+def page_header_and_breadcrumb(ctx):
+    errs = []
+    for lang, url, f in content_pages(ctx.root):
+        segments = url.strip("/").split("/")
+        if len(segments) == 1 or segments[1] in PAGEHEAD_PENDING:
+            continue  # home has the hero; pending layouts come later
+        doc = parse(f)
+        main = doc.find("main")
+        head = main.find("section", "pagehead") if main else None
+        h1 = head.find("h1") if head else None
+        if h1 is None:
+            errs.append(f"{url}: no .pagehead h1")
+            continue
+        if h1.text() != title_of(doc):
+            errs.append(f"{url}: h1 {h1.text()!r} != title {title_of(doc)!r}")
+        crumb = main.find("nav", "crumb")
+        depth = len(segments) - 1
+        if depth >= 2:
+            want = ["/" + "/".join(segments[:i]) + "/" for i in range(2, depth + 1)]
+            got = [a.attrs.get("href") for a in crumb.find_all("a")] if crumb else None
+            if got != want:
+                errs.append(f"{url}: crumb {got} != {want}")
+            elif crumb.find("span") is None or crumb.find("span").text() != h1.text():
+                errs.append(f"{url}: crumb does not end with the page title")
+        elif crumb is not None:
+            errs.append(f"{url}: unexpected breadcrumb")
+        if uikit_markup(main):
+            errs.append(f"{url}: UIkit markup in <main>")
+    return errs
+
+
+@check("pagehead")
+def not_found_page(ctx):
+    errs = []
+    for lang in LANGS:
+        f = ctx.root / lang / "404.html"
+        main = parse(f).find("main") if f.exists() else None
+        h1 = main.find("h1") if main else None
+        if h1 is None or h1.text() != "404":
+            errs.append(f"/{lang}/404.html: no h1 404")
+        elif uikit_markup(main):
+            errs.append(f"/{lang}/404.html: UIkit markup")
+        else:
+            home = [a for a in main.find_all("a") if a.attrs.get("href") == f"/{lang}/"]
+            if not home:
+                errs.append(f"/{lang}/404.html: no link to /{lang}/")
+    return errs
+
+
 # ── main ────────────────────────────────────────────────────────────────
 def main(argv):
     wanted = set(argv)
