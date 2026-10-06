@@ -23,7 +23,7 @@
 .ccard{border:1px solid var(--line);border-top:3px solid var(--leaf);background:#fff;padding:26px 26px 24px}
 .ccard .role{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--leaf-deep);margin-bottom:10px}
 .ccard p{margin:0 0 12px;color:#46524a;font-size:.96rem;white-space:pre-line}
-.ccard strong{font-family:var(--display);font-weight:600;font-size:1.12rem;color:var(--ink)}
+.ccard strong{font-family:var(--display);font-weight:600;font-size:1.25rem;color:var(--ink)}
 .ccard a[href^="mailto:"]{font-family:var(--mono);font-size:.95rem;color:var(--pine);text-decoration:none;border-bottom:1px solid var(--leaf)}
 .ccard a[href^="mailto:"]:hover{color:var(--leaf-deep)}
 
