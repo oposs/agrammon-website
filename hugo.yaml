@@ -21,8 +21,8 @@ params:
 
 languages:
   de:
-    languageCode: de-ch
-    languageName: Deutsch
+    locale: de-ch
+    label: Deutsch
     weight: 1
     params:
       languageLabel: DE
@@ -63,8 +63,8 @@ languages:
           weight: 7
 
   en:
-    languageCode: en
-    languageName: English
+    locale: en
+    label: English
     weight: 2
     params:
       languageLabel: EN
@@ -105,8 +105,8 @@ languages:
           weight: 7
 
   fr:
-    languageCode: fr-ch
-    languageName: Français
+    locale: fr-ch
+    label: Français
     weight: 3
     params:
       languageLabel: FR

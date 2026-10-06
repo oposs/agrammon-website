@@ -78,8 +78,8 @@
                     <li>
                         <div class="ag-nav-controls">
                             <div class="ag-lang-switcher">
-                                {{ range $.Site.Languages }}
-                                    {{ $thisLang := .Lang }}
+                                {{ range hugo.Sites }}
+                                    {{ $thisLang := .Language.Lang }}
                                     {{ $langURL := print "/" $thisLang "/" }}
                                     {{ range $currentPage.AllTranslations }}
                                         {{ if eq .Language.Lang $thisLang }}
@@ -88,7 +88,7 @@
                                     {{ end }}
                                     {{ if ne $thisLang $.Site.Language.Lang }}<span>|</span>{{ end }}
                                     <a href="{{ $langURL }}"
-                                       class="{{ if eq $thisLang $.Site.Language.Lang }}ag-lang-active{{ end }}">{{ .Params.languageLabel }}</a>
+                                       class="{{ if eq $thisLang $.Site.Language.Lang }}ag-lang-active{{ end }}">{{ .Language.Params.languageLabel }}</a>
                                 {{ end }}
                             </div>
                             <button id="ag-theme-toggle" class="ag-theme-toggle" type="button"
@@ -164,14 +164,14 @@
                 </li>
 
                 {{/* Language links in mobile menu */}}
-                {{ range $.Site.Languages }}
-                    {{ $thisLang := .Lang }}
+                {{ range hugo.Sites }}
+                    {{ $thisLang := .Language.Lang }}
                     {{ $langURL := print "/" $thisLang "/" }}
                     {{ range $currentPage.AllTranslations }}
                         {{ if eq .Language.Lang $thisLang }}{{ $langURL = .RelPermalink }}{{ end }}
                     {{ end }}
                     <li><a href="{{ $langURL }}" style="color:rgba(255,255,255,{{ if eq $thisLang $.Site.Language.Lang }}1{{ else }}0.7{{ end }})">
-                        {{ if eq $thisLang $.Site.Language.Lang }}→ {{ end }}{{ .Params.languageName }}
+                        {{ if eq $thisLang $.Site.Language.Lang }}→ {{ end }}{{ .Language.Params.languageName }}
                     </a></li>
                 {{ end }}
             </ul>
