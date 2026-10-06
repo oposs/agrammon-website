@@ -714,6 +714,19 @@ def ueber_uns_blocks(ctx):
     return errs
 
 
+# ── cleanup (Task 11) ───────────────────────────────────────────────────
+@check("cleanup")
+def no_uikit_markup_anywhere(ctx):
+    return [str(f.relative_to(ctx.root)) for f in all_html(ctx.root)
+            if uikit_markup(parse(f))]
+
+
+@check("cleanup")
+def mockups_removed(ctx):
+    return [f"{d} still present" for d in MOCKUPS
+            if (ROOT / "static" / d).exists() or (ctx.root / d).exists()]
+
+
 # ── main ────────────────────────────────────────────────────────────────
 def main(argv):
     wanted = set(argv)
