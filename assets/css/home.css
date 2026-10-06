@@ -1,1 +1,14 @@
-/* home.css -- filled in by a later task of the theme2 port. */
+/* Home hero (Task 9) and model variant cards (also on the Modell page). */
+.modelcards{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:8px}
+.variant{padding:30px 26px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column}
+.variant:last-child{border-right:none}
+.variant .idx{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.variant h3{font-family:var(--display);font-weight:600;font-size:1.32rem;margin:14px 0 10px;letter-spacing:-.01em}
+.variant p{color:#3c4940;font-size:.98rem;margin:0 0 18px}
+.variant .launch{margin-top:auto;align-self:flex-start}
+.tag{align-self:flex-start;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;
+     background:#FBEFC9;color:#7a5c00;border-left:3px solid #E0A800;padding:6px 9px;margin:0 0 16px;border-radius:2px}
+@media(max-width:860px){
+  .modelcards{grid-template-columns:1fr}
+  .variant{border-right:none}
+}

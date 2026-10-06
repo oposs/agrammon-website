@@ -339,7 +339,7 @@ def chrome_is_theme2_only(ctx):
 # ── pagehead (Task 4) ───────────────────────────────────────────────────
 # Top-level paths whose layouts are ported in later tasks; each task
 # removes its entry when it switches that layout to the page header.
-PAGEHEAD_PENDING = {"modell", "kontakt", "ueber-uns"}
+PAGEHEAD_PENDING = {"kontakt", "ueber-uns"}
 
 
 @check("pagehead")
@@ -580,6 +580,43 @@ def links_page_groups(ctx):
                 errs.append(f"{url}: {a.text()[:40]!r} lacks ↗ or domain {host!r}")
         if main.find("div", "lede") is None:
             errs.append(f"{url}: intro paragraph missing")
+        if uikit_markup(main):
+            errs.append(f"{url}: UIkit markup in <main>")
+    return errs
+
+
+# ── modell (Task 8) ─────────────────────────────────────────────────────
+VARIANTS = ("single", "regional", "kantonal")
+
+
+def model_cards_errors(url, lang, scope):
+    cards = scope.find_all("div", "variant")
+    if len(cards) != 3:
+        return [f"{url}: {len(cards)} model cards"]
+    errs = []
+    for card, variant in zip(cards, VARIANTS):
+        a = card.find("a", "launch")
+        want = f"https://model.agrammon.ch/{variant}/?lang={lang}"
+        if a is None or a.attrs.get("href") != want:
+            errs.append(f"{url}: {variant} card link {a.attrs.get('href') if a else None}")
+    tags = [bool(c.find("span", "tag")) for c in cards]
+    if tags != [False, False, True]:
+        errs.append(f"{url}: frozen tag on cards {tags}, want only kantonal")
+    return errs
+
+
+@check("modell")
+def modell_page(ctx):
+    errs = []
+    for lang in LANGS:
+        url = f"/{lang}/modell/"
+        main = parse(page_file(ctx.root, url)).find("main")
+        errs += model_cards_errors(url, lang, main)
+        got = len(main.find_all("li", "dl-row"))
+        want = expected_rows(ROOT / f"content/modell.{lang}.md")
+        if got != want:
+            errs.append(f"{url}: {got} manual rows, source has {want}")
+        errs += row_errors(url, main)
         if uikit_markup(main):
             errs.append(f"{url}: UIkit markup in <main>")
     return errs

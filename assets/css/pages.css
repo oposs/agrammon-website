@@ -11,3 +11,7 @@
 .linklist a .ext{color:var(--leaf-deep);font-weight:400}
 .linklist .u{display:block;font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-top:3px}
 .prose .ext{font-size:.85em;text-decoration:none}
+
+/* Modell */
+.modell .lede{margin-bottom:24px}
+.usage{padding:64px 0 0}
