@@ -1,15 +1,18 @@
 {{- /* Turn PDF lists in rendered Markdown into download rows.
        Context: rendered HTML (.Content). Lists without any PDF link are
-       left alone. In a PDF list, an item "Text — <pdf link>" or consisting
+       left alone. In a PDF list, an item "Text — <pdf link>" (also --, - ) or consisting
        only of a PDF link becomes a row (text + "PDF ↓" button); any other
        item (no PDF yet, several PDF links) keeps its inline links. */ -}}
 {{- $html := string . -}}
 {{- $label := i18n "pdf_download" -}}
-{{- $withText := `<li>([^<]*(?:</?(?:em|strong|code)>[^<]*)*)\s*(?:—|&mdash;|–)\s*<a class="pdf" href="([^"]+)"[^>]*>[^<]*</a>\s*</li>` -}}
+{{- $withText := `<li>([^<]*?(?:</?(?:em|strong|code)>[^<]*?)*?)(?:\s*(?:—|&mdash;|–|&ndash;)\s*|\s+-\s+)<a class="pdf" href="([^"]+)"[^>]*>[^<]*</a>\s*</li>` -}}
 {{- $linkOnly := `<li><a class="pdf" href="([^"]+)"[^>]*>([^<]*)</a>\s*</li>` -}}
 {{- range findRE `(?s)<ul>.*?</ul>` $html -}}
   {{- if strings.Contains . `class="pdf"` -}}
     {{- $list := replace . "<ul>" `<ul class="dl-list">` 1 -}}
+    {{- /* a blank line between bullets makes a loose list: unwrap <p> */ -}}
+    {{- $list = replaceRE `<li>\s*<p>` `<li>` $list -}}
+    {{- $list = replaceRE `</p>\s*</li>` `</li>` $list -}}
     {{- $list = replaceRE $withText (printf `<li class="dl-row"><span class="t">$1</span><a class="dl" href="$2">%s</a></li>` $label) $list -}}
     {{- $list = replaceRE $linkOnly (printf `<li class="dl-row"><span class="t">$2</span><a class="dl" href="$1">%s</a></li>` $label) $list -}}
     {{- $html = replace $html . $list -}}

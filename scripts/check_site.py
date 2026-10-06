@@ -429,7 +429,7 @@ def docs_sidebar_and_prose(ctx):
 # ── downloads (Task 6) ──────────────────────────────────────────────────
 # One bullet per document: "- Text — [label](file.pdf)" or "- [Title](file.pdf)"
 STANDARD_ROW = re.compile(
-    r"^- (?:[^\[\n]+?\s+[—–]\s+\[[^\]]+\]\([^)\s]+\.pdf\)|\[[^\]]+\]\([^)\s]+\.pdf\))\s*$")
+    r"^- (?:[^\[\n]+?(?:\s+(?:—|–|---|--)\s+|\s+-\s+)\[[^\]]+\]\([^)\s]+\.pdf\)|\[[^\]]+\]\([^)\s]+\.pdf\))\s*$")
 DL_PAGES = ("berichte", "modell-agrammon", "weitere-informationen", "blsmodelr")
 
 
