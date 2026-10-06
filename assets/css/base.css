@@ -39,6 +39,7 @@ img{max-width:100%;height:auto}
 .prose h2:first-child{margin-top:0}
 .prose h3{font-family:var(--display);font-weight:600;font-size:1.15rem;margin:1.8rem 0 .5rem}
 .prose p{margin:0 0 1.1rem}
+.prose code{overflow-wrap:anywhere}
 .prose a{color:var(--leaf-deep);text-decoration:underline;text-underline-offset:2px}
 .prose a:hover{color:var(--pine)}
 .prose .btn{text-decoration:none}
