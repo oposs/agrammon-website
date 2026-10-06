@@ -339,7 +339,7 @@ def chrome_is_theme2_only(ctx):
 # ── pagehead (Task 4) ───────────────────────────────────────────────────
 # Top-level paths whose layouts are ported in later tasks; each task
 # removes its entry when it switches that layout to the page header.
-PAGEHEAD_PENDING = {"kontakt", "ueber-uns"}
+PAGEHEAD_PENDING = set()
 
 
 @check("pagehead")
@@ -662,6 +662,53 @@ def home_page(ctx):
         if ctas != [f"/{lang}/modell/", f"/{lang}/dokumentation/"]:
             errs.append(f"{url}: hero buttons {ctas}")
         errs += model_cards_errors(url, lang, main)
+        if uikit_markup(main):
+            errs.append(f"{url}: UIkit markup in <main>")
+    return errs
+
+
+# ── pages (Task 10) ─────────────────────────────────────────────────────
+@check("pages")
+def kontakt_cards(ctx):
+    errs = []
+    for lang in LANGS:
+        url = f"/{lang}/kontakt/"
+        md = (ROOT / f"content/kontakt.{lang}.md").read_text(encoding="utf-8")
+        want = [h.strip() for h in re.findall(r"^## (.+)$", md, re.M)]
+        main = parse(page_file(ctx.root, url)).find("main")
+        cards = main.find_all("div", "ccard")
+        roles = [c.find("div", "role").text() if c.find("div", "role") else None for c in cards]
+        if roles != want:
+            errs.append(f"{url}: card roles {roles} != {want}")
+        for c in cards:
+            if not [a for a in c.find_all("a") if a.attrs.get("href", "").startswith("mailto:")]:
+                errs.append(f"{url}: card without e-mail link")
+        if uikit_markup(main):
+            errs.append(f"{url}: UIkit markup in <main>")
+    return errs
+
+
+@check("pages")
+def ueber_uns_blocks(ctx):
+    errs = []
+    for lang in LANGS:
+        url = f"/{lang}/ueber-uns/"
+        main = parse(page_file(ctx.root, url)).find("main")
+        blocks = main.find_all("section", "team-block")
+        people = main.find_all("div", "person")
+        steer = main.find("ul", "steer")
+        if len(blocks) != 4:
+            errs.append(f"{url}: {len(blocks)} team blocks, want 4")
+        if len(people) != 5:
+            errs.append(f"{url}: {len(people)} people, want 5")
+        for p in people:
+            img = p.find("img")
+            if img is None or not page_file(ctx.root, img.attrs.get("src", "")).exists():
+                errs.append(f"{url}: portrait missing for {p.text()!r}")
+            elif img.attrs.get("alt") != p.text():
+                errs.append(f"{url}: portrait alt {img.attrs.get('alt')!r} != {p.text()!r}")
+        if steer is None or len(steer.find_all("li")) != 3:
+            errs.append(f"{url}: steering group list wrong")
         if uikit_markup(main):
             errs.append(f"{url}: UIkit markup in <main>")
     return errs
