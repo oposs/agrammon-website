@@ -20,8 +20,6 @@ weight: 2
 
 ## Background Information related to modifications of Agrammon
 
-{{< todo >}}**Missing / wrong download (as on the live site):** For "Changes from version 6.5.2 to 7.0.0 (2026-05-29)" the live site links to the wrong file (the version-5.0 document). Ask the customer for the correct 7.0.0 PDF.{{< /todo >}}
-
-- Changes from version 6.5.2 to 7.0.0 (2026-05-29)
+- Changes from version 6.5.2 to 7.0.0 (2026-05-29). In [German](/assets/Documents/2026-Mitteilung-Anpassung-Modell-Agrammon-20260529d.pdf).
 - Changes from version 5.1.4 to 6.0.0 (2021-05-31). In [German](/assets/Documents/Mitteilung-Anpassung-Modell-Agrammon-20210531v_d.pdf) or in [French](/assets/Documents/Mitteilung-Anpassung-Modell-Agrammon-20210531v_f.pdf).
 - Changes from version 4.0 to 5.0 (2020-02-04). In [German](/assets/Documents/Mitteilungen-zur-neuen-Modellversion-5.0-20200204d.pdf).

@@ -487,21 +487,6 @@ def lists_without_pdfs_untouched(ctx):
 
 
 @check("downloads")
-def placeholder_without_pdf_stays_a_row(ctx):
-    # "Changes 6.5.2 -> 7.0.0" has no PDF yet (OPEN-QUESTIONS.md #3).
-    errs = []
-    for lang in LANGS:
-        main = parse(page_file(ctx.root, f"/{lang}/downloads/modell-agrammon/")).find("main")
-        items = [li for ul in main.find_all("ul", "dl-list") for li in ul.find_all("li")]
-        hits = [li for li in items if "7.0.0" in li.text()]
-        if len(hits) != 1:
-            errs.append(f"{lang}: 7.0.0 entry found {len(hits)} times in download lists")
-        elif hits[0].find("a", "dl"):
-            errs.append(f"{lang}: 7.0.0 entry unexpectedly has a PDF button")
-    return errs
-
-
-@check("downloads")
 def every_pdf_linked_and_resolving(ctx):
     errs = []
     on_disk = {"/" + p.relative_to(ROOT / "static").as_posix()

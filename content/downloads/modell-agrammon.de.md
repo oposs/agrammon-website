@@ -21,8 +21,6 @@ weight: 2
 
 ## Mitteilungen zum Modell Agrammon
 
-{{< todo >}}**Fehlender Download (auf der Live-Website so vorhanden):** Beim Eintrag «Änderungen der Version 7.0.0 gegenüber Version 6.5.2 (2026-05-29)» fehlt auf der Live-Website der Download-Link (nur der Text «Download», keine Datei verknüpft). Korrektes PDF beim Kunden anfragen.{{< /todo >}}
-
-- Änderungen der Version 7.0.0 gegenüber Version 6.5.2 (2026-05-29)
+- Änderungen der Version 7.0.0 gegenüber Version 6.5.2 (2026-05-29) — [Download](/assets/Documents/2026-Mitteilung-Anpassung-Modell-Agrammon-20260529d.pdf)
 - Änderungen der Version 6.0.0 gegenüber Version 5.1.4 (2021-05-31) — [Download](/assets/Documents/Mitteilung-Anpassung-Modell-Agrammon-20210531v_d.pdf)
 - Änderungen der Version 5.0 gegenüber Version 4.0 (2020-02-04) — [Download](/assets/Documents/Mitteilungen-zur-neuen-Modellversion-5.0-20200204d.pdf)

@@ -22,12 +22,14 @@ weight: 3
 - Beurteilung der Ansäuerung von Gülle als Massnahme zur Reduktion von Ammoniakemissionen in der Schweiz – Aktueller Stand. 2017 — [Download](/assets/Documents/Bericht-Ansaeuerung-Guelle-20170123v.pdf)
 - Beurteilung der Ozonung von Gülle als Massnahme zur Reduktion von Ammoniakemissionen. 2013 — [Download](/assets/Documents/Bericht-Ozonung-Guelle-20130409.pdf)
 - Beurteilung von Futterzusatzstoffen basierend auf Extrakten von Yucca schidigera als Massnahme zur Reduktion von Ammoniakemissionen. 2014 — [Download](/assets/Documents/Bericht-Extrakte-von-Yucca-schidigera-20140825.pdf)
+- Einfluss der jährlichen Temperaturschwankungen auf die modellierten Ammoniakemissionen der Tierproduktion von 2002 bis 2019. 2023 — [Download](/assets/Documents/04269.pdf)
 - Emissionen von Ammoniak und Treibhausgasen aus Kompost- und Kompostierungsställen. 2024 — [Download](/assets/Documents/03244_2024.pdf)
 - Minderung von Ammoniakemissionen aus Schweineställen aufgrund des Einsatzes von VevoVitall® (Benzoesäure) in der Fütterung von Mastschweinen (Arbeitspapier). 2013 — [Download](/assets/Documents/Arbeitspapier-Benzoesaeure-Schweinefuetterung-Ammoniak-20131126.pdf)
 - Mobile Geflügelställe für Legehennen und Mastpoulets. Verbreitung, Merkmale und Bedeutung für Emissionsrechnungen mit dem Modell Agrammon. 2024 — [Download](/assets/Documents/04649.pdf)
 - Révision des valeurs d'excrétions d'azote chez les bovins d'engraissement, les chèvres et les moutons. Bericht auf Französisch mit Zusammenfassung auf Deutsch. 2025 — [Download](/assets/Documents/04694.pdf)
 - Schätzung der N-Ausscheidungen von Geflügel in den Freilandauslauf. 2024 — [Download](/assets/Documents/04391.pdf)
 - Separierung von Gülle und ihr Einfluss auf Ammoniakemissionen. 2015 — [Download](/assets/Documents/02395.pdf)
+- Zwischenbericht: Quantifizierung von Ammoniakemissionen in zwei Schweizer Pouletmastställen mit und ohne Wärmerückgewinnungsanlage. Es handelt sich um einen Zwischenbericht; der definitive Bericht, dessen Resultate im Vergleich zum vorliegenden Zwischenbericht ändern können, wird voraussichtlich im Herbst 2026 aufgeschaltet werden. — [Download](/assets/Documents/Zwischenbericht-Emissionsmessungen_Mastgeflugel_260622.pdf)
 
 ## Weitere Themen bearbeitet von der HAFL
 

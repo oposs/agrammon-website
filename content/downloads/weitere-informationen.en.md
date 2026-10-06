@@ -21,6 +21,7 @@ weight: 3
 - Evaluation of the ozonation of slurry as a measure for ammonia emission mitigation (in German). 2013 — [Download](/assets/Documents/Bericht-Ozonung-Guelle-20130409.pdf)
 - Evaluation of slurry acidification for mitigating ammonia emissions in Switzerland (report in German with summary in English). 2017 — [Download](/assets/Documents/Bericht-Ansaeuerung-Guelle-20170123v.pdf)
 - Emissions of ammonia and greenhouse gases from compost-bedded pack barns. Report in German. 2024 — [Download](/assets/Documents/03244_2024.pdf)
+- Impact of annual temperature fluctuations on modeled ammonia emissions from livestock production from 2002 to 2019 (in German). 2023 — [Download](/assets/Documents/04269.pdf)
 - Potential limitations of ammonia flux data beyond 72h after field application of slurry (poster presented at EGU 2024). 2024 — [Download](/assets/Documents/ALFAM2_poster_EGU24_vsubm.pdf)
 - Mobile housings for laying hens and broilers. Occurrence, characteristics and relevance related to emission calculations based on the model Agrammon (in German). 2024 — [Download](/assets/Documents/04649.pdf)
 - Reduction of ammonia emissions from pig housings due to the use of VevoVitall® (benzoic acid) for fattening pigs. Working document (in German). 2013 — [Download](/assets/Documents/Arbeitspapier-Benzoesaeure-Schweinefuetterung-Ammoniak-20131126.pdf)
