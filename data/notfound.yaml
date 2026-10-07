@@ -1,0 +1,14 @@
+# Text for the 404 pages, keyed by language. Kept here rather than in i18n/
+# so the root /404.html can show all three languages on one page.
+de:
+  title: Seite nicht gefunden
+  text: Die gewünschte Seite existiert nicht oder wurde verschoben.
+  home: Zur Startseite
+en:
+  title: Page not found
+  text: The page you requested does not exist or has been moved.
+  home: Go to the home page
+fr:
+  title: Page introuvable
+  text: La page demandée n'existe pas ou a été déplacée.
+  home: Aller à la page d'accueil

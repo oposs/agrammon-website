@@ -15,8 +15,11 @@
       {{- range $i, $s := hugo.Sites }}
         {{- $lang := $s.Language.Lang }}
         {{- $href := $s.Home.RelPermalink }}
-        {{- range $current.AllTranslations }}
-          {{- if eq .Language.Lang $lang }}{{ $href = .RelPermalink }}{{ end }}
+        {{- /* 404 pages link to each language's home, not its 404 */}}
+        {{- if not (or (eq $current.Kind "404") $current.Params.allLanguages) }}
+          {{- range $current.AllTranslations }}
+            {{- if eq .Language.Lang $lang }}{{ $href = .RelPermalink }}{{ end }}
+          {{- end }}
         {{- end }}
         {{- if gt $i 0 }}<span class="sep">/</span>{{ end }}
       <a href="{{ $href }}" hreflang="{{ $lang }}" lang="{{ $lang }}"{{ if eq $lang site.Language.Lang }} class="current" aria-current="true"{{ end }}>{{ $s.Language.Params.languageLabel }}</a>

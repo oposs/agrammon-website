@@ -1,0 +1,17 @@
+{{- /* 404 body. Context: the page; front-matter `allLanguages` shows all three. */ -}}
+{{- $langs := slice site.Language.Lang -}}
+{{- if .Params.allLanguages }}{{ $langs = slice }}{{ range hugo.Sites }}{{ $langs = $langs | append .Language.Lang }}{{ end }}{{ end -}}
+<section class="pagehead"><div class="wrap"><p class="eyebrow">Error 404</p><h1>{{ (index hugo.Data.notfound (index $langs 0)).title }}</h1></div></section>
+<div class="wrap">
+  <div class="page notfound">
+    {{- range $i, $lang := $langs }}
+    {{- $t := index hugo.Data.notfound $lang }}
+    {{- $home := "" }}{{ range hugo.Sites }}{{ if eq .Language.Lang $lang }}{{ $home = .Home.RelPermalink }}{{ end }}{{ end }}
+    <div lang="{{ $lang }}">
+      {{- if gt $i 0 }}<h2>{{ $t.title }}</h2>{{ end }}
+      <p class="lede">{{ $t.text }}</p>
+      <a class="btn btn-leaf" href="{{ $home }}">← {{ $t.home }}</a>
+    </div>
+    {{- end }}
+  </div>
+</div>

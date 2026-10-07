@@ -376,19 +376,24 @@ def page_header_and_breadcrumb(ctx):
 
 @check("pagehead")
 def not_found_page(ctx):
+    """Per-language 404s link their own home; the root /404.html (served by
+    GitHub Pages and most servers) links all three."""
     errs = []
-    for lang in LANGS:
-        f = ctx.root / lang / "404.html"
+    titles = {"de": "Seite nicht gefunden", "en": "Page not found", "fr": "Page introuvable"}
+    pages = [(f"/{lang}/404.html", ctx.root / lang / "404.html", titles[lang], [lang])
+             for lang in LANGS]
+    pages.append(("/404.html", ctx.root / "404.html", titles["de"], list(LANGS)))
+    for url, f, title, homes in pages:
         main = parse(f).find("main") if f.exists() else None
         h1 = main.find("h1") if main else None
-        if h1 is None or h1.text() != "404":
-            errs.append(f"/{lang}/404.html: no h1 404")
+        if h1 is None or h1.text() != title:
+            errs.append(f"{url}: no h1 {title!r}")
         elif uikit_markup(main):
-            errs.append(f"/{lang}/404.html: UIkit markup")
+            errs.append(f"{url}: UIkit markup")
         else:
-            home = [a for a in main.find_all("a") if a.attrs.get("href") == f"/{lang}/"]
-            if not home:
-                errs.append(f"/{lang}/404.html: no link to /{lang}/")
+            hrefs = {a.attrs.get("href") for a in main.find_all("a")}
+            errs += [f"{url}: no link to /{lang}/" for lang in homes
+                     if f"/{lang}/" not in hrefs]
     return errs
 
 
