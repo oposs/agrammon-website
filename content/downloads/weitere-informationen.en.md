@@ -1,6 +1,9 @@
 ---
 title: Further Information
 weight: 3
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /downloads/further-information/
 ---
 <!--
   One line per document:

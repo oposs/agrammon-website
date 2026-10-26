@@ -1,6 +1,9 @@
 ---
 title: Paramètres du modèle
 weight: 2
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /documentation/parametres-du-modele/
 ---
 
 Les paramètres du modèle se composent de deux parties :

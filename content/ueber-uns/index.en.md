@@ -38,4 +38,7 @@ supported_label: "Supported by"
 supported_org: "Federal Office for the Environment (FOEN)"
 supported_by: "supports the development and operation of the model."
 supported_url: "https://www.bafu.admin.ch/"
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /development-of-the-model/
 ---

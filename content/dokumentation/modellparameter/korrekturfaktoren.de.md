@@ -1,6 +1,9 @@
 ---
 title: Korrekturfaktoren
 weight: 2
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /dokumentation-zum-modell/modellparameter/korrekturfaktoren/
 ---
 
 Die Korrekturfaktoren berücksichtigen produktionstechnische Verfahren, welche die Stickstoffausscheidung pro Tier oder die Ammoniakemissionen verringern oder erhöhen.

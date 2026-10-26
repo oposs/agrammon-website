@@ -1,6 +1,9 @@
 ---
 title: Verwendete Grundlagen
 weight: 1
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /dokumentation-zum-modell/verwendete-grundlagen/
 ---
 
 Das Modell stützt sich auf wissenschaftliche Versuche in der Schweiz, soweit sie verfügbar sind. Wo Versuchsdaten fehlten, wurden internationale Quellen einbezogen und auf Schweizer Bedingungen adaptiert.

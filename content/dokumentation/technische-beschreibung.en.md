@@ -1,6 +1,9 @@
 ---
 title: Technical Description
 weight: 3
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /dokumentation-zum-modell/technical-description/
 ---
 
 - The document [Technical Parameters of the Agrammon Model]({{< relref "/downloads/modell-agrammon" >}}) (in German) provides a summary of the most important variables used in the model.

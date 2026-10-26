@@ -1,6 +1,9 @@
 ---
 title: Emissionsfaktoren
 weight: 1
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /dokumentation-zum-modell/modellparameter/emissionsraten/
 ---
 
 {{< todo >}}**Unterschiedliche Terminologie über die Sprachen:** DE «Emissionsfaktoren», EN «Emission factors», FR «Taux d'émission» (= Emissionsraten). Diese Differenz besteht so auch auf der Live-Website und ist möglicherweise gewollt. Vom Kunden zu entscheiden, ob das FR vereinheitlicht werden soll.{{< /todo >}}

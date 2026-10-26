@@ -38,4 +38,7 @@ supported_label: "Soutenu par"
 supported_org: "Office fédéral de l'environnement (OFEV)"
 supported_by: "soutient le développement et l'exploitation du modèle."
 supported_url: "https://www.bafu.admin.ch/"
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /developpement-du-modele/
 ---

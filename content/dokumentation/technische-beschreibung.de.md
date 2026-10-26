@@ -1,6 +1,9 @@
 ---
 title: Technische Modellbeschreibung
 weight: 3
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /dokumentation-zum-modell/technische-modellbeschreibung/
 ---
 
 - Das Dokument [Technische Parameter Modell Agrammon]({{< relref "/downloads/modell-agrammon" >}}) fasst die wichtigsten im Modell verwendeten Grössen zusammen.

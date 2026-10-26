@@ -1,6 +1,9 @@
 ---
 title: Modellparameter
 weight: 2
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /dokumentation-zum-modell/modellparameter/
 ---
 
 Die Modellparameter bestehen aus zwei Teilen:

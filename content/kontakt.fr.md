@@ -2,6 +2,9 @@
 title: Contact
 weight: 5
 type: kontakt
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /contact/
 ---
 
 ## Questions scientifiques sur le modèle

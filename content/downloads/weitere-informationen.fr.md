@@ -1,6 +1,9 @@
 ---
 title: Informations supplémentaires
 weight: 3
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /documents-a-telecharger/informations-supplementaires/
 ---
 <!--
   One line per document:

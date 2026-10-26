@@ -1,6 +1,9 @@
 ---
 title: Correction Factors
 weight: 2
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /dokumentation-zum-modell/modellparameter/correction-factors/
 ---
 
 Correction factors account for production techniques that reduce or increase nitrogen excretion per animal or ammonia emissions.

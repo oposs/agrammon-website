@@ -1,6 +1,9 @@
 ---
 title: R-Paket bLSmodelR
 weight: 4
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /downloads/blsmodelr-de-de/
 ---
 
 Das R-Paket **bLSmodelR** stellt Funktionen zur Einrichtung und Ausführung eines rückwärts-zeitlichen Lagrangeschen stochastischen (bLS) Ausbreitungsmodells mit der Statistiksoftware R bereit.

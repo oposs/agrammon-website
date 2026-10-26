@@ -1,6 +1,9 @@
 ---
 title: Taux d'émission
 weight: 1
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /documentation/parametres-du-modele/taux-demission/
 ---
 
 {{< todo >}}**Terminologie différente selon les langues :** DE «Emissionsfaktoren», EN «Emission factors», FR «Taux d'émission» (= taux). Cette différence existe aussi sur le site en ligne et est peut-être voulue. À décider par le client.{{< /todo >}}

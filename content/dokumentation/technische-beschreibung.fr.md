@@ -1,6 +1,9 @@
 ---
 title: Description technique
 weight: 3
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /documentation/description-technique-du-modele/
 ---
 
 - Le document [Paramètres techniques du modèle Agrammon]({{< relref "/downloads/modell-agrammon" >}}) (en allemand) récapitule les principaux paramètres utilisés par le modèle.

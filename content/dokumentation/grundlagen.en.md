@@ -1,6 +1,9 @@
 ---
 title: Principles
 weight: 1
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /dokumentation-zum-modell/principles-followed/
 ---
 
 The model relies on scientific research conducted within Switzerland wherever available. Where domestic data gaps existed, international sources were incorporated and adapted to Swiss conditions.

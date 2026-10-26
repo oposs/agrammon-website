@@ -38,4 +38,7 @@ supported_label: "Unterstützt durch"
 supported_org: "Bundesamt für Umwelt (BAFU)"
 supported_by: "unterstützt die Entwicklung und den Betrieb des Modells."
 supported_url: "https://www.bafu.admin.ch/"
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /modellentwicklung/
 ---

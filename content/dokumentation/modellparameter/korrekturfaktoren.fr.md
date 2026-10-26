@@ -1,6 +1,9 @@
 ---
 title: Facteurs de correction
 weight: 2
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /documentation/parametres-du-modele/facteurs-de-correction/
 ---
 
 Les facteurs de correction tiennent compte des procédés techniques de production qui réduisent ou augmentent l'excrétion d'azote par animal ou les émissions d'ammoniac.

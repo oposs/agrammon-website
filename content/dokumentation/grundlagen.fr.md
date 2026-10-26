@@ -1,6 +1,9 @@
 ---
 title: Principes
 weight: 1
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /documentation/bases-utilisees/
 ---
 
 Le modèle s'appuie sur des expériences scientifiques menées en Suisse dans la mesure du possible. Lorsque des données manquaient, des sources internationales ont été intégrées et adaptées aux conditions suisses.
