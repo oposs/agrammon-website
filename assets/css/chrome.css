@@ -53,6 +53,6 @@ footer nav.foot a:hover{text-decoration:underline}
 }
 
 /* Launch notice below the header bar */
-.launch-note{background:var(--paper-dim);border-bottom:1px solid var(--line);font-size:.9rem;color:#2c3830}
+.launch-note{background:var(--ink);color:var(--paper);font-size:.9rem;font-weight:700}
 .launch-note .wrap{padding-top:9px;padding-bottom:9px}
-.launch-note a{color:var(--pine);font-weight:500}
+.launch-note a{color:var(--leaf)}
