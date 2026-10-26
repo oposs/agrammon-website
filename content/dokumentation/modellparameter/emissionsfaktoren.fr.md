@@ -3,10 +3,9 @@ title: Taux d'émission
 weight: 1
 # Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
 aliases:
+  - /dokumentation/modellparameter/emissionsraten/
   - /documentation/parametres-du-modele/taux-demission/
 ---
-
-{{< todo >}}**Terminologie différente selon les langues :** DE «Emissionsfaktoren», EN «Emission factors», FR «Taux d'émission» (= taux). Cette différence existe aussi sur le site en ligne et est peut-être voulue. À décider par le client.{{< /todo >}}
 
 Les taux d'émission indiquent quelle proportion de l'azote excrété sur les pâturages, dans les étables ou sur les cours de ferme, stocké dans les installations de stockage d'engrais de ferme ou épandu sur les prairies ou les terres arables, est émise sous forme d'ammoniac dans l'air.
 

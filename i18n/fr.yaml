@@ -13,7 +13,7 @@
 - id: documentation_modellparameter
   translation: Paramètres du modèle
 
-- id: documentation_emissionsraten
+- id: documentation_emissionsfaktoren
   translation: Taux d'émission
 
 - id: documentation_korrekturfaktoren

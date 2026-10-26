@@ -3,10 +3,9 @@ title: Emission factors
 weight: 1
 # Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
 aliases:
+  - /dokumentation/modellparameter/emissionsraten/
   - /dokumentation-zum-modell/modellparameter/emission-rates/
 ---
-
-{{< todo >}}**Differing terminology across languages:** DE "Emissionsfaktoren", EN "Emission factors", FR "Taux d'émission" (= emission *rates*). This also matches the live site and may be intentional. To be decided by the customer whether FR should be unified.{{< /todo >}}
 
 Emission factors indicate what proportion of nitrogen excreted on pastures, in stalls, or on farm yards, stored in manure storage facilities, or applied as fertilizer to grassland or arable land is emitted as ammonia into the air.
 

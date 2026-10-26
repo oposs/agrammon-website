@@ -13,8 +13,8 @@
 - id: documentation_modellparameter
   translation: Model Parameters
 
-- id: documentation_emissionsraten
-  translation: Emission Rates
+- id: documentation_emissionsfaktoren
+  translation: Emission Factors
 
 - id: documentation_korrekturfaktoren
   translation: Correction Factors

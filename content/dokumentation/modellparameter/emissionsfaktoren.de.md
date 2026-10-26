@@ -3,10 +3,9 @@ title: Emissionsfaktoren
 weight: 1
 # Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
 aliases:
+  - /dokumentation/modellparameter/emissionsraten/
   - /dokumentation-zum-modell/modellparameter/emissionsraten/
 ---
-
-{{< todo >}}**Unterschiedliche Terminologie über die Sprachen:** DE «Emissionsfaktoren», EN «Emission factors», FR «Taux d'émission» (= Emissionsraten). Diese Differenz besteht so auch auf der Live-Website und ist möglicherweise gewollt. Vom Kunden zu entscheiden, ob das FR vereinheitlicht werden soll.{{< /todo >}}
 
 Die Emissionsfaktoren geben an, welcher Anteil des Stickstoffs, der auf den Weiden oder im Stall oder auf den Hofplätzen ausgeschieden wird, der auf den Hofdüngerlagern lagert oder beim Ausbringen von Hofdünger auf Grünland oder Ackerland anfällt, als Ammoniak in die Luft emittiert wird.
 
