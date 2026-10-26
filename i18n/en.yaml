@@ -80,3 +80,9 @@
 
 - id: flux_caption
   translation: "Schematic representation (Flux Model)"
+
+- id: launchNote
+  translation: "The new Agrammon website went live on {{ .Date }}. If you have any questions, write to us at {{ .Mail }}."
+
+- id: launchSubject
+  translation: "New website"

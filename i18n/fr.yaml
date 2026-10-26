@@ -80,3 +80,9 @@
 
 - id: flux_caption
   translation: "Visualisation schématique (modélisation des flux)"
+
+- id: launchNote
+  translation: "Le nouveau site web Agrammon est en ligne depuis le {{ .Date }}. Pour toute question, écrivez-nous à {{ .Mail }}."
+
+- id: launchSubject
+  translation: "Nouveau site web"

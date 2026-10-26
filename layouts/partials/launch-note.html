@@ -1,0 +1,8 @@
+{{- with site.Params.launchDate }}
+{{- /* urlquery encodes spaces as "+", which mail clients show literally */}}
+{{- $subject := replace (urlquery (i18n "launchSubject")) "+" "%20" }}
+{{- $mail := printf `<a href="mailto:support@agrammon.ch?subject=%s">support@agrammon.ch</a>` $subject }}
+<div class="launch-note">
+  <div class="wrap">{{ i18n "launchNote" (dict "Date" (time.Format ":date_long" .) "Mail" $mail) | safeHTML }}</div>
+</div>
+{{- end }}

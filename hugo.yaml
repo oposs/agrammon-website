@@ -19,6 +19,8 @@ imaging:
 
 params:
   favicon: img/favicon.png
+  # Launch notice below the header; remove launchDate to hide it.
+  launchDate: 2026-10-26
 
 # ─── Languages ──────────────────────────────────────────────────────────────
 
