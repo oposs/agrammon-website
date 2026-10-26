@@ -1,6 +1,13 @@
 ---
 title: Agrammon Model
 weight: 3
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /agrammon-model/
+  - /agrammon-model/single-farm-model/
+  - /agrammon-model/regional-model/
+  - /agrammon-model/single-farm-model-with-cantonal-adaptions/
+  - /agrammon-model/usage-of-the-model/
 intro: "The Agrammon simulation model is available in three variants:"
 note: "The structure and operation of the three model versions are similar. However, the *Regional Model* and the *Single Farm Model with Cantonal Adaptations* have additional functions compared to the *Single Farm Model*. Please consult the respective user guides."
 ---

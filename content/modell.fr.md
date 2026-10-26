@@ -1,6 +1,13 @@
 ---
 title: Modèle Agrammon
 weight: 3
+# Old agrammon.ch URLs redirected here (Hugo adds the language prefix)
+aliases:
+  - /modele-agrammon/
+  - /modele-agrammon/modele-exploitation-individuelle/
+  - /modele-agrammon/modele-regional/
+  - /modele-agrammon/modele-exploitation-individuelle-avec-adaptations-cantonales/
+  - /modele-agrammon/utilisation-du-modele/
 intro: "Le modèle de simulation Agrammon est disponible en trois variantes :"
 note: "La structure et l'utilisation des trois versions du modèle sont similaires. Toutefois, le *Modèle régional* et le *Modèle exploitation individuelle avec adaptations cantonales* disposent de fonctions supplémentaires par rapport au *Modèle exploitation individuelle*. Veuillez consulter les guides d'utilisation respectifs."
 ---
