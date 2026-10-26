@@ -1,6 +1,9 @@
 ---
 title: Willkommen
 description: Das Simulationsmodell Agrammon ermöglicht die Berechnung der Ammoniakemissionen in der Schweizer Landwirtschaft.
+# Old agrammon.ch URL redirected here (Hugo adds the language prefix)
+aliases:
+  - /home/
 ---
 
 Ammoniakverflüchtigung ist für die Schweizer Landwirtschaft eine bedeutende Verlustquelle für Stickstoff (N). Pro Jahr gehen so mehr als 30'000 Tonnen Stickstoff verloren. Dies entspricht fast einem Drittel des N-Anfalles in Hofdüngern und hat für die Landwirte einen finanziellen Verlust und eine Verminderung der Produktivität zur Folge. Gleichzeitig belasten Ammoniakemissionen die Umwelt, insbesondere naturnahe Ökosysteme.

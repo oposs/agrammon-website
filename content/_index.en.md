@@ -1,6 +1,9 @@
 ---
 title: Welcome
 description: The Agrammon simulation model allows ammonia emissions in Swiss agriculture to be calculated.
+# Old agrammon.ch URL redirected here (Hugo adds the language prefix)
+aliases:
+  - /home/
 ---
 
 Ammonia volatilisation is a significant source of nitrogen (N) loss in Swiss agriculture. More than 30,000 tonnes of nitrogen are lost this way every year. This represents almost one-third of the N load of farmyard manure, and results in both a financial loss as well as diminished productivity for the farmer. At the same time, ammonia emissions are detrimental to the environment, in particular to natural ecosystems.
