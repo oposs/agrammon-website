@@ -32,7 +32,7 @@ weight: 3
 - Révision des valeurs d'excrétions d'azote chez les bovins d'engraissement, les chèvres et les moutons. Bericht auf Französisch mit Zusammenfassung auf Deutsch. 2025 — [Download](04694.pdf)
 - Schätzung der N-Ausscheidungen von Geflügel in den Freilandauslauf. 2024 — [Download](04391.pdf)
 - Separierung von Gülle und ihr Einfluss auf Ammoniakemissionen. 2015 — [Download](02395.pdf)
-- Temperatur von Gülle während der Lagerung. 2026 — [Download](04843.pdf)
+- Temperatur von Gülle während der Lagerung. 2026 — [Download].(04843.pdf).
 - Zwischenbericht: Quantifizierung von Ammoniakemissionen in zwei Schweizer Pouletmastställen mit und ohne Wärmerückgewinnungsanlage. Es handelt sich um einen Zwischenbericht; der definitive Bericht, dessen Resultate im Vergleich zum vorliegenden Zwischenbericht ändern können, wird voraussichtlich im Herbst 2026 aufgeschaltet werden. — [Download](Zwischenbericht-Emissionsmessungen_Mastgeflugel_260622.pdf)
 
 ## Weitere Themen bearbeitet von der HAFL
